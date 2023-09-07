@@ -1,0 +1,13 @@
+mat-card {
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+}
+
+mat-card > div {
+  height: calc(100% - 20px);
+}
+
+button img {
+  height: 20px;
+  width: 20px;
+}

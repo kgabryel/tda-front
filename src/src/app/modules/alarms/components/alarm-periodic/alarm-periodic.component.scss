@@ -1,0 +1,57 @@
+@import 'colors';
+
+@media only screen and (max-width: 699px) {
+  .date-filter:not(.only) > .mat-form-field {
+    width: 100%;
+  }
+}
+
+.mat-expansion-panel .mat-expansion-panel + .mat-expanded {
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+
+@media only screen and (min-width: 700px) {
+  .date-filter {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.mat-expansion-panel .mat-expanded {
+  margin-top: 0;
+  margin-bottom: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.without-pagination > .mat-form-field {
+  width: 100%;
+}
+
+:host ::ng-deep .mat-standard-chip {
+  border-radius: 6px;
+}
+
+:host ::ng-deep .mat-expansion-panel-body {
+  padding-right: 0;
+  padding-left: 0;
+  padding-bottom: 0;
+}
+
+:host ::ng-deep mat-card-header .mat-card-header-text {
+  display: none;
+}
+
+.name {
+  flex-grow: 1;
+  line-height: 1.5em;
+}
+
+.section {
+  box-shadow: none;
+}
+
+.section .mat-expansion-panel-header {
+  padding: 0;
+}

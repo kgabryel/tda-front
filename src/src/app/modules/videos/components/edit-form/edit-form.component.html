@@ -1,0 +1,37 @@
+<h1 class='text-center mb-0 mt-2 sidenav-header'>
+  {{'headers.videoUpdate' | translate}}
+</h1>
+<form (ngSubmit)='submit()' [autocomplete]='null | autocomplete' [formGroup]='form' class='pa-3'>
+  <form-text-input
+    [errors]='errors.name'
+    [field]='form.get(formNames.name)'
+    [maxLength]='maxNameLength'
+    label='form.label.name'
+    part='name'
+    prefix='videos'>
+  </form-text-input>
+  <div class='w-100 mt-2'>
+    <mat-slide-toggle [formControlName]='formNames.assignedToDashboard' color='primary'>
+      {{'form.label.assignedToDashboard' | translate}}
+    </mat-slide-toggle>
+  </div>
+  <mat-slide-toggle [formControlName]='formNames.watched' color='primary'>
+    {{'form.label.watched' | translate}}
+  </mat-slide-toggle>
+  <form-multi-select
+    *ngIf='(catalogs$ | async)?.length > 0'
+    [formGroup]='form.get(formNames.catalogs)'
+    [values]='catalogs$ | async'
+    label='form.label.catalogs'>
+  </form-multi-select>
+  <form-multi-select
+    *ngIf='(tasks$ | async)?.length > 0'
+    [formGroup]='form.get(formNames.tasks)'
+    [values]='tasks$ | async'
+    label='form.label.tasks'>
+  </form-multi-select>
+  <button [disabled]='form.invalid' class='w-100 mt-2' color='primary' mat-raised-button type='submit'>
+    {{'form.actions.update' | translate}}
+  </button>
+</form>
+

@@ -1,0 +1,14 @@
+<div [formGroup]='parentForm' class='small-container pr-2'>
+  <div (cdkDropListDropped)='drop($event)' cdkDropList formArrayName='notificationsGroup'>
+    <shared-periodic-notification
+      (remove)='removeNotification(i)'
+      *ngFor='let e of (notifications$ | async)?.controls; let i = index;'
+      [formGroup]='e'
+      [removeDisabled]='(notifications$ | async)?.length === 1'
+      cdkDrag>
+    </shared-periodic-notification>
+  </div>
+</div>
+<button (click)='addNotification()' class='w-100' mat-raised-button type='button'>
+  {{'form.actions.addNotification' | translate}}
+</button>

@@ -1,0 +1,17 @@
+<div class='d-flex pa-1 border-radius-5 align-center basic-bg-hover h-45px hover-activator'>
+  <p class='mb-0 pl-1 w-100 single-line text-underline-hover'>
+    {{video.name}}
+  </p>
+  <span class='d-flex-hover'>
+    <a [href]='href' mat-icon-button target='_blank'>
+      <mat-icon [matTooltip]="'tooltips.show' | translate">
+        link
+      </mat-icon>
+    </a>
+    <button (click)='remove()' *ngIf='delete' mat-icon-button type='button'>
+      <mat-icon [matTooltip]="'tooltips.delete' | translate">
+        delete
+      </mat-icon>
+    </button>
+  </span>
+</div>

@@ -1,0 +1,6 @@
+<div *ngIf='barValue > 0'>
+  <mat-progress-bar [color]='color' [mode]='mode' [value]='barValue' class='mb-1'></mat-progress-bar>
+  <span>
+    {{fileSize | fileSize}} / {{maxFileSize | fileSize}}
+  </span>
+</div>

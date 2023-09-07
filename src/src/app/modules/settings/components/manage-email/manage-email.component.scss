@@ -1,0 +1,24 @@
+.code {
+  color: blue;
+}
+
+form > * {
+  display: block;
+  width: 100%;
+}
+
+@media only screen and (max-width: 499px) {
+  form > button {
+    width: calc(100% - 20px);
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  form {
+    display: flex;
+    align-items: center;
+  }
+  form > * {
+    width: 50%;
+  }
+}

@@ -1,0 +1,19 @@
+<div class='d-flex align-center border-radius-5 ma-1 basic-bg-hover'>
+  <button
+    (click)='openStatusSheet()'
+    [matTooltip]="'taskStatuses.' + status.name | translate"
+    [style.color]='status.color'
+    mat-icon-button
+    onclick='this.blur();'
+    type='button'>
+    <mat-icon>
+      {{status.icon}}
+    </mat-icon>
+  </button>
+  <p [routerLink]='[this.taskUrl]' class='ml-1 c-pointer w-100 single-line mb-0 name'>
+    {{task.name}}
+    <span *ngIf='task.date !== null'>
+      [{{task.date | date : 'dd-MM-y'}}]
+    </span>
+  </p>
+</div>

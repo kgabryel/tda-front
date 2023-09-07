@@ -1,0 +1,67 @@
+<div [formGroup]='formGroup' cdkDrag>
+  <div class='d-flex align-baseline'>
+    <div class='w-50 pr-1'>
+      <form-time-picker [parentForm]='formGroup' label='form.label.time'></form-time-picker>
+    </div>
+    <div class='w-50 pl-1'>
+      <mat-form-field class='w-100'>
+        <mat-label>
+          {{'form.label.day' | translate}}
+        </mat-label>
+        <mat-select [formControlName]='formNames.notificationType'>
+          <mat-option *ngFor='let type of types' [value]='type.value'>
+            {{'shared.notificationsTypes.' + type.name | translate}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <button (click)='removeGroup()' [disabled]='removeDisabled' color='warn' mat-mini-fab type='button'>
+      <mat-icon>
+        delete
+      </mat-icon>
+    </button>
+  </div>
+  <mat-form-field [ngClass]="{'hidden' : intervalHidden$ | async}" class='w-100'>
+    <mat-label>
+      {{intervalLabel$ | async | translate}}
+    </mat-label>
+    <input
+      [autocomplete]='null | autocomplete'
+      [formControlName]='formNames.interval'
+      [max]='maxInterval$ | async'
+      [min]='1'
+      matInput
+      type='number' />
+  </mat-form-field>
+  <span *ngIf='formGroup.get(formNames.notificationTime).invalid && formGroup.get(formNames.notificationTime).touched'>
+    <form-errors-container
+      [errors]='errors.notificationTime'
+      [input]='formGroup.get(formNames.notificationTime)'
+      part='notificationTime'
+      prefix='alarms'>
+    </form-errors-container>
+  </span>
+  <span *ngIf='formGroup.get(formNames.notificationType).invalid && formGroup.get(formNames.notificationType).touched'>
+    <form-errors-container
+      [errors]='errors.notificationType'
+      [input]='formGroup.get(formNames.notificationType)'
+      part='notificationType'
+      prefix='alarms'>
+    </form-errors-container>
+  </span>
+  <form-multi-select
+    [formGroup]='formGroup.get(formNames.typesGroup)'
+    [hideButtons]='true'
+    [reset]='reset$'
+    [values]='types$ | async'
+    label='form.label.notificationTypes'>
+  </form-multi-select>
+  <span *ngIf='formGroup.get(formNames.typesGroup).get(formNames.search).invalid && formGroup.get(formNames.typesGroup).get(formNames.search).touched'>
+    <form-errors-container
+      [errors]='errors.types'
+      [input]='formGroup.get(formNames.typesGroup).get(formNames.search)'
+      part='types'
+      prefix='alarms'>
+    </form-errors-container>
+  </span>
+</div>

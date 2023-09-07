@@ -1,0 +1,50 @@
+<div class='pa-1'>
+  <div class='two-columns-container'>
+    <div>
+      <mat-form-field class='w-100'>
+        <mat-label>
+          {{'form.label.from' | translate}}
+        </mat-label>
+        <button (click)='clearStartDate()' mat-icon-button matPrefix type='button'>
+          <mat-icon>
+            clear
+          </mat-icon>
+        </button>
+        <input
+          (click)='startPicker.open()'
+          [formControl]='startDate'
+          [matDatepicker]='startPicker'
+          class='c-pointer'
+          matInput readonly />
+        <mat-datepicker-toggle [for]='startPicker' matSuffix></mat-datepicker-toggle>
+        <mat-datepicker #startPicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class='w-100'>
+        <mat-label>
+          {{'form.label.to' | translate}}
+        </mat-label>
+        <button (click)='clearStopDate()' mat-icon-button matPrefix type='button'>
+          <mat-icon>
+            clear
+          </mat-icon>
+        </button>
+        <input
+          (click)='stopPicker.open()'
+          [formControl]='stopDate'
+          [matDatepicker]='stopPicker'
+          class='c-pointer'
+          matInput readonly />
+        <mat-datepicker-toggle [for]='stopPicker' matSuffix></mat-datepicker-toggle>
+        <mat-datepicker #stopPicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </div>
+  <form-yes-no-select
+    [control]='status'
+    label='form.label.status'
+    noAnswer='form.options.onlyActive'
+    yesAnswer='form.options.onlyInactive'>
+  </form-yes-no-select>
+</div>

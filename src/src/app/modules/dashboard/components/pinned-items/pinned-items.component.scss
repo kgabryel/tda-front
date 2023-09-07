@@ -1,0 +1,23 @@
+:host ::ng-deep .mat-expansion-panel-content {
+  overflow: auto;
+}
+
+:host ::ng-deep .mat-expansion-panel-body {
+  padding: 0;
+}
+
+.mat-expansion-panel + .mat-expanded {
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.mat-expanded {
+  margin-top: 0;
+  margin-bottom: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+:host ::ng-deep shared-note .mat-card {
+  min-height: 200px;
+}

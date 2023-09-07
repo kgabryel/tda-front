@@ -1,0 +1,43 @@
+<div class='pa-1 hover-activator border-radius-5 basic-bg-hover'>
+  <div class='d-flex h-45px'>
+    <div class='w-100 d-flex align-center'>
+      <button
+        [ngClass]="{'small-button' : small$ | async}"
+        [style.backgroundColor]='taskStatus.color'
+        class='mr-2 text-white'
+        mat-raised-button
+        type='button'>
+        <mat-icon *ngIf='!(small$ | async)'>
+          {{taskStatus.icon}}
+        </mat-icon>
+        <mat-icon *ngIf='(small$ | async)' [matTooltip]="'taskStatuses.' + taskStatus.name | translate">
+          {{taskStatus.icon}}
+        </mat-icon>
+        <span *ngIf='!(small$ | async)'>
+            {{'taskStatuses.' + taskStatus.name | translate}}
+        </span>
+      </button>
+      <p class='mb-0 single-line text-underline-hover'>
+        <span [ngClass]="{'hidden' : (small$ | async)}" class='mr-1'>
+          {{task.name}}
+        </span>
+        <span *ngIf='task.date !== null'>[{{task.date | date : 'dd-MM-y'}}]</span>
+      </p>
+    </div>
+    <span class='d-flex-hover'>
+      <button [routerLink]='[task.id | taskUrl]' mat-icon-button type='button'>
+        <mat-icon [matTooltip]="'tooltips.goTo' | translate">
+          visibility
+        </mat-icon>
+      </button>
+      <button (click)='remove()' *ngIf='delete' mat-icon-button type='button'>
+        <mat-icon [matTooltip]="'tooltips.delete' | translate">
+          delete
+        </mat-icon>
+      </button>
+      </span>
+  </div>
+  <p [ngClass]="{'hidden' : !(small$ | async)}" class='mt-1 mb-0 text-underline-hover'>
+    {{task.name}}
+  </p>
+</div>

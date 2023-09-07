@@ -1,0 +1,57 @@
+<div [formGroup]='form'>
+  <form-text-input
+    [errors]='errors.name'
+    [field]='form.get(formNames.name)'
+    [maxLength]='maxNameLength'
+    label='form.label.name'
+    part='name'
+    prefix='catalogs'>
+  </form-text-input>
+  <div class='d-flex justify-center mt-2'>
+    <mat-slide-toggle [formControlName]='formNames.assignedToDashboard' color='primary'>
+      {{'form.label.assignedToDashboard' | translate}}
+    </mat-slide-toggle>
+  </div>
+  <form-multi-select
+    *ngIf='(tasks$ | async)?.length > 0'
+    [formGroup]='form.get(formNames.tasks)'
+    [reset]='reset$'
+    [values]='tasks$ | async'
+    label='form.label.tasks'>
+  </form-multi-select>
+  <form-multi-select
+    *ngIf='(alarms$ | async)?.length > 0'
+    [formGroup]='form.get(formNames.alarms)'
+    [reset]='reset$'
+    [values]='alarms$ | async'
+    label='form.label.alarms'>
+  </form-multi-select>
+  <form-multi-select
+    *ngIf='(notes$ | async)?.length > 0'
+    [formGroup]='form.get(formNames.notes)'
+    [reset]='reset$'
+    [values]='notes$ | async'
+    label='form.label.notes'>
+  </form-multi-select>
+  <form-multi-select
+    *ngIf='(bookmarks$ | async)?.length > 0'
+    [formGroup]='form.get(formNames.bookmarks)'
+    [reset]='reset$'
+    [values]='bookmarks$ | async'
+    label='form.label.bookmarks'>
+  </form-multi-select>
+  <form-multi-select
+    *ngIf='(files$ | async)?.length > 0'
+    [formGroup]='form.get(formNames.files)'
+    [reset]='reset$'
+    [values]='files$ | async'
+    label='form.label.files'>
+  </form-multi-select>
+  <form-multi-select
+    *ngIf='(videos$ | async)?.length > 0'
+    [formGroup]='form.get(formNames.videos)'
+    [reset]='reset$'
+    [values]='videos$ | async'
+    label='form.label.videos'>
+  </form-multi-select>
+</div>

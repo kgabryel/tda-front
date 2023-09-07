@@ -1,0 +1,4 @@
+<bookmarks-bookmark-container
+  *ngIf='(bookmark$ | async) !== undefined'
+  [bookmark]='bookmark$ | async'>
+</bookmarks-bookmark-container>

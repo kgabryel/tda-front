@@ -1,0 +1,75 @@
+<div class='pa-1'>
+  <mat-accordion multi='false'>
+    <mat-expansion-panel *ngIf='(tasks$ | async).length > 0'>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{'headers.tasks' | translate}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class='pa-1'>
+        <simple-view-task-single *ngFor='let task of tasks$ | async' [task]='task'></simple-view-task-single>
+      </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel *ngIf='(notes$ | async).length > 0'>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{'headers.notes' | translate}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class='pa-1'>
+        <simple-view-note (undo)='removeNote($event)' *ngFor='let note of notes$ | async' [note]='note'>
+        </simple-view-note>
+      </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel *ngIf='(bookmarks$ | async).length > 0'>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{'headers.bookmarks' | translate}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class='pa-1'>
+        <simple-view-bookmark
+          (undo)='removeBookmark($event)'
+          *ngFor='let bookmark of bookmarks$ | async'
+          [bookmark]='bookmark'>
+        </simple-view-bookmark>
+      </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel *ngIf='(catalogs$ | async).length > 0'>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{'headers.catalogs' | translate}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class='pa-1'>
+        <simple-view-catalog
+          (undo)='removeCatalog($event)'
+          *ngFor='let catalog of catalogs$ | async'
+          [catalog]='catalog'>
+        </simple-view-catalog>
+      </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel *ngIf='(files$ | async).length > 0'>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{'headers.files' | translate}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class='pa-1'>
+        <simple-view-file (undo)='removeFile($event)' *ngFor='let file of files$ | async' [file]='file'>
+        </simple-view-file>
+      </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel *ngIf='(videos$ | async).length > 0'>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{'headers.videos' | translate}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class='pa-1'>
+        <simple-view-video (undo)='removeVideo($event)' *ngFor='let video of videos$ | async' [video]='video'>
+        </simple-view-video>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

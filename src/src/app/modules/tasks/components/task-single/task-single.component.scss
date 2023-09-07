@@ -1,0 +1,29 @@
+.details > p:first-child {
+  white-space: nowrap;
+}
+
+.mat-progress-bar {
+  height: 10px;
+}
+
+.name {
+  flex-grow: 1;
+}
+
+.header + .name {
+  height: 55px;
+}
+
+:host ::ng-deep .mat-expansion-panel-body {
+  padding-right: 0;
+  padding-left: 0;
+  padding-bottom: 0;
+}
+
+.section {
+  box-shadow: none;
+}
+
+.section .mat-expansion-panel-header {
+  padding: 0;
+}

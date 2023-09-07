@@ -1,0 +1,8 @@
+<notes-sidenav>
+  <shared-loader *ngIf='search$ | async'></shared-loader>
+  <div *ngIf='(search$ | async) === false' class='pa-4 d-flex flex-row-wrap'>
+    <notes-new-note [style.height]='height' [style.width]='width'></notes-new-note>
+    <notes-note-view *ngFor='let note of (notes$ | async)' [id]='note.id' [style.height]='height' [style.width]='width'>
+    </notes-note-view>
+  </div>
+</notes-sidenav>

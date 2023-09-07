@@ -1,0 +1,6 @@
+<shared-pagination *ngIf='alarms.length > 5' [config$]='config$' [limitField]='limitField' [pageField]='pageField'>
+</shared-pagination>
+<alarms-alarm-preview *ngFor='let subAlarm of alarms | paginate : (config$ | async)' [alarm]='subAlarm'>
+</alarms-alarm-preview>
+<shared-pagination *ngIf='alarms.length > 5' [config$]='config$' [limitField]='limitField' [pageField]='pageField'>
+</shared-pagination>

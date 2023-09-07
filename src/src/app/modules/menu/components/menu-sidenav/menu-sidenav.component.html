@@ -1,0 +1,17 @@
+<mat-drawer-container autosize hasBackdrop='true'>
+  <mat-drawer (closed)='changeStatus($event)' [opened]='(showed$ | async).open' mode='over'>
+    <mat-toolbar color='primary'>
+      <div class='w-100 h-100'>
+        <img [src]='logoPath' alt='logo' class='h-100 w-auto' />
+      </div>
+    </mat-toolbar>
+    <mat-nav-list>
+      <menu-menu-element *ngFor='let menuElement of menuElements' [data]='menuElement'></menu-menu-element>
+    </mat-nav-list>
+    <menu-tasks [headerName]="'tasksForToday'" [tasks]='tasksForToday$'></menu-tasks>
+    <menu-tasks [headerName]="'undoneTasks'" [tasks]='undoneTasks$'></menu-tasks>
+  </mat-drawer>
+  <div>
+    <ng-content></ng-content>
+  </div>
+</mat-drawer-container>

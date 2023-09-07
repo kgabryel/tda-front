@@ -1,0 +1,9 @@
+<h1 class='text-center mb-0 mt-2 sidenav-header'>
+  {{'headers.catalogUpdate' | translate}}
+</h1>
+<form (ngSubmit)='submit()' [autocomplete]='null | autocomplete' [formGroup]='form' class='pa-3'>
+  <catalogs-form [form]='form'></catalogs-form>
+  <button [disabled]='form.invalid' class='w-100 mt-2' color='primary' mat-raised-button type='submit'>
+    {{'form.actions.update' | translate}}
+  </button>
+</form>

@@ -1,0 +1,16 @@
+<mat-form-field class='w-100'>
+  <mat-label>
+    {{label | translate}}
+  </mat-label>
+  <input (click)='colorPicker.open()' [formControl]='field' [ngxMatColorPicker]='colorPicker' matInput readonly />
+  <ngx-mat-color-toggle [for]='colorPicker' matSuffix></ngx-mat-color-toggle>
+  <ngx-mat-color-picker #colorPicker></ngx-mat-color-picker>
+</mat-form-field>
+<span *ngIf='!simple'>
+  <form-color (selected)='selectColor($event)' *ngFor='let color of colors$ | async' [color]='color'>
+  </form-color>
+</span>
+<div *ngIf='field.invalid && field.touched'>
+  <form-errors-container [errors]='errors' [input]='field' [part]='part' [prefix]='prefix'>
+  </form-errors-container>
+</div>

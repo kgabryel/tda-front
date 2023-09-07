@@ -1,0 +1,42 @@
+@import 'colors';
+
+:host ::ng-deep mat-card-header .mat-card-header-text {
+  display: none;
+}
+
+.mat-expansion-panel .mat-expansion-panel + .mat-expanded {
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.mat-expansion-panel .mat-expanded {
+  margin-top: 0;
+  margin-bottom: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+:host ::ng-deep .mat-expansion-panel-body {
+  padding-right: 0;
+  padding-left: 0;
+  padding-bottom: 0;
+}
+
+.name {
+  flex-grow: 1;
+  line-height: 1.5em;
+}
+
+:host ::ng-deep .mat-expansion-panel-body {
+  padding-right: 0;
+  padding-left: 0;
+  padding-bottom: 0;
+}
+
+.section {
+  box-shadow: none;
+}
+
+.section .mat-expansion-panel-header {
+  padding: 0;
+}

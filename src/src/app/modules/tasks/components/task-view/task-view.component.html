@@ -1,0 +1,5 @@
+<div *ngIf='(task$ | async) !== undefined'>
+  <tasks-task-single *ngIf='(task$ | async)?.periodic === false' [task]='task$ | async'></tasks-task-single>
+  <tasks-task-periodic *ngIf='(task$ | async)?.periodic === true' [task]='task$ | async'></tasks-task-periodic>
+</div>
+

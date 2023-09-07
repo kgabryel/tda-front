@@ -1,0 +1,72 @@
+<div [formGroup]='parentForm' class='small-container pr-2'>
+  <div (cdkDropListDropped)='drop($event)' cdkDropList formArrayName='notificationsGroup'>
+    <div *ngFor='let e of (notifications$ | async)?.controls; let i = index;' [formGroup]='e' cdkDrag>
+      <div class='position align-baseline d-flex'>
+        <div class='w-50 pr-1'>
+          <mat-form-field class='w-100'>
+            <mat-label>
+              {{'form.label.time' | translate}}
+            </mat-label>
+            <input
+              (click)='picker.open();'
+              [formControl]='e.get(formNames.notificationTime)'
+              [ngxMatDatetimePicker]='picker'
+              matInput
+              readonly />
+            <button (click)='picker.open(); $event.stopPropagation();' mat-icon-button matSuffix type='button'>
+              <mat-icon>
+                schedule
+              </mat-icon>
+            </button>
+            <ngx-mat-datetime-picker #picker [showSpinners]='true'></ngx-mat-datetime-picker>
+          </mat-form-field>
+        </div>
+        <div class='w-50 pl-1'>
+          <form-multi-select
+            [formGroup]='e.get(formNames.typesGroup)'
+            [hideButtons]='true'
+            [reset]='reset$'
+            [values]='types$ | async'
+            label='form.label.notificationTypes'>
+          </form-multi-select>
+        </div>
+        <button
+          (click)='removeNotification(i)'
+          [disabled]='(notifications$ | async)?.controls.length === 1'
+          class='s-btn ml-1'
+          color='warn'
+          mat-mini-fab
+          type='button'>
+          <mat-icon>
+            delete
+          </mat-icon>
+        </button>
+        <button (click)='removeNotification(i)' class='w-100 b-btn pb-1' color='warn' mat-raised-button type='button'>
+          {{'form.actions.deleteNotification' | translate}}
+        </button>
+      </div>
+      <div class='mb-1'>
+        <span *ngIf='e.get(formNames.notificationTime).invalid && e.get(formNames.notificationTime).touched'>
+          <form-errors-container
+            [errors]='errors.notificationTime'
+            [input]='e.get(formNames.notificationTime)'
+            part='notificationTime'
+            prefix='alarms'>
+          </form-errors-container>
+        </span>
+        <span *ngIf='e.get(formNames.typesGroup).get(formNames.search).invalid && e.get(formNames.typesGroup).get(formNames.search).touched'>
+          <form-errors-container
+            [errors]='errors.types'
+            [input]='e.get(formNames.typesGroup).get(formNames.search)'
+            part='types'
+            prefix='alarms'>
+          </form-errors-container>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+<button (click)='addNotification()' class='w-100' mat-raised-button type='button'>
+  {{'form.actions.addNotification' | translate}}
+</button>
+

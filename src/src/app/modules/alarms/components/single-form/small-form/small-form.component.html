@@ -1,0 +1,14 @@
+<mat-vertical-stepper>
+  <mat-step>
+    <ng-template matStepLabel>
+      {{'headers.alarm' | translate}}
+    </ng-template>
+    <shared-single-alarm-part [form]='form.get(formNames.mainGroup)' [reset$]='reset$'></shared-single-alarm-part>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>
+      {{'headers.notifications' | translate}}
+    </ng-template>
+    <shared-single-notifications [parentForm]='form' [reset$]='reset$'></shared-single-notifications>
+  </mat-step>
+</mat-vertical-stepper>

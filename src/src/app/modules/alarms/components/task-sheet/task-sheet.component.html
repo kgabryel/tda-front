@@ -1,0 +1,20 @@
+<mat-form-field class='w-100'>
+  <mat-label>
+    {{'form.label.task' | translate}}
+  </mat-label>
+  <input [autocomplete]='null | autocomplete' [formControl]='taskInput' [matAutocomplete]='auto' matInput type='text' />
+  <mat-autocomplete #auto='matAutocomplete' [displayWith]='displayFn'>
+    <mat-option *ngFor='let task of filteredTasks$ | async' [value]='task'>
+      {{task.name}}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>
+<button (click)='change()' [disabled]='invalid' class='my-1 w-100' color='primary' mat-raised-button type='button'>
+  {{'form.actions.save' | translate}}
+</button>
+<button (click)='delete()' *ngIf='selected !== null' class='my-1 w-100' color='warn' mat-raised-button type='button'>
+  {{'form.actions.delete' | translate}}
+</button>
+<button (click)='close()' class='my-1 w-100' mat-raised-button type='button'>
+  {{'form.actions.close' | translate}}
+</button>

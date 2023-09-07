@@ -1,0 +1,7 @@
+<files-sidenav>
+  <shared-loader *ngIf='search$ | async'></shared-loader>
+  <div *ngIf='(search$ | async) === false'>
+    <files-files-table [files$]='files$'></files-files-table>
+    <files-add-button></files-add-button>
+  </div>
+</files-sidenav>

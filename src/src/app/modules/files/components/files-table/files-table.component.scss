@@ -1,0 +1,27 @@
+.actions-column {
+  width: 75px;
+}
+
+.progress-bar-row {
+  border: none !important;
+}
+
+@media only screen and (max-width: 1200px) {
+  .files-container {
+    margin-bottom: 70px;
+  }
+}
+
+.dark-mode :host ::ng-deep tr {
+  background-color: #424242;
+  color: white;
+}
+
+.dark-mode :host ::ng-deep .p-datatable .p-datatable-thead > tr > th {
+  background: #424242;
+  color: white;
+}
+
+.dark-mode :host ::ng-deep .p-datatable .p-sortable-column .p-sortable-column-icon {
+  color: white;
+}

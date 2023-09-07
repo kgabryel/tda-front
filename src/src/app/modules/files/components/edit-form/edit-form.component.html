@@ -1,0 +1,81 @@
+<h1 class='text-center mb-2 mt-2 sidenav-header'>
+  {{'headers.fileUpdate' | translate}}
+</h1>
+<mat-vertical-stepper>
+  <mat-step state='name'>
+    <ng-template matStepLabel>
+      {{'headers.editFileData' | translate}}
+    </ng-template>
+    <form (ngSubmit)='submitNameForm()' [autocomplete]='null | autocomplete' [formGroup]='editForm' class='pa-1'>
+      <form-text-input
+        [errors]='errors.name'
+        [field]='editForm.get(formNames.name)'
+        [maxLength]='maxNameLength'
+        label='form.label.name'
+        part='name'
+        prefix='files'>
+      </form-text-input>
+      <div class='w-100 mt-2'>
+        <mat-slide-toggle [formControlName]='formNames.assignedToDashboard' color='primary'>
+          {{'form.label.assignedToDashboard' | translate}}
+        </mat-slide-toggle>
+      </div>
+      <form-multi-select
+        *ngIf='(catalogs$ | async)?.length > 0'
+        [formGroup]='editForm.get(formNames.catalogs)'
+        [values]='catalogs$ | async'
+        label='form.label.catalogs'>
+      </form-multi-select>
+      <form-multi-select
+        *ngIf='(tasks$ | async)?.length > 0'
+        [formGroup]='editForm.get(formNames.tasks)'
+        [values]='tasks$ | async'
+        label='form.label.tasks'>
+      </form-multi-select>
+      <button class='w-100 mt-2' color='primary' mat-raised-button type='submit'>
+        {{'form.actions.update' | translate}}
+      </button>
+    </form>
+  </mat-step>
+  <mat-step state='file'>
+    <ng-template matStepLabel>
+      {{'headers.editFile' | translate}}
+    </ng-template>
+    <form (ngSubmit)='submitFileForm()' [autocomplete]='null | autocomplete' [formGroup]='editFileForm'>
+      <mat-form-field class='w-100'>
+        <mat-label>
+          {{'form.label.file' | translate}}
+        </mat-label>
+        <ngx-mat-file-input
+          #filePicker
+          (click)='filePicker.openFilePicker()'
+          [formControlName]='formNames.file'
+          color='primary'>
+        </ngx-mat-file-input>
+      </mat-form-field>
+      <files-file-size-bar [fileInput]='editFileForm.get(formNames.file)'></files-file-size-bar>
+      <span *ngIf='editFileForm.get(formNames.file).invalid && editFileForm.get(formNames.file).touched'>
+        <form-errors-container
+          [errors]='errors.file'
+          [input]='editFileForm.get(formNames.file)'
+          part='file'
+          prefix='files'>
+        </form-errors-container>
+      </span>
+      <button class='w-100 mt-2' color='primary' mat-raised-button type='submit'>
+        {{'form.actions.update' | translate}}
+      </button>
+    </form>
+  </mat-step>
+  <ng-template matStepperIcon='name'>
+    <mat-icon>
+      create
+    </mat-icon>
+  </ng-template>
+  <ng-template matStepperIcon='file'>
+    <mat-icon>
+      attach_file
+    </mat-icon>
+  </ng-template>
+</mat-vertical-stepper>
+<files-upload-progress-overlay *ngIf='uploading$ | async'></files-upload-progress-overlay>

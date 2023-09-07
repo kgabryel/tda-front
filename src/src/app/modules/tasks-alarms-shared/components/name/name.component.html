@@ -1,0 +1,26 @@
+<div *ngIf='edit' class='d-flex w-100 align-center h-50px'>
+  <button (click)='stopEdit()' mat-icon-button onclick='this.blur();' type='button'>
+    <mat-icon>
+      close
+    </mat-icon>
+  </button>
+  <mat-form-field class='w-100'>
+    <input [(ngModel)]='editValue' [autocomplete]='null | autocomplete' [maxlength]='maxLength' matInput type='text' />
+    <mat-hint align='end'>
+      {{editValue.length}} / {{maxLength}}
+    </mat-hint>
+  </mat-form-field>
+  <button
+    (click)='save()'
+    [disabled]='editValue === null || editValue.length === 0'
+    mat-icon-button
+    onclick='this.blur();'
+    type='button'>
+    <mat-icon>
+      save
+    </mat-icon>
+  </button>
+</div>
+<p (dblclick)='edit = true' *ngIf='!edit' class='c-text mb-0 border-radius-5 pa-2 basic-bg-hover'>
+  {{name}}
+</p>

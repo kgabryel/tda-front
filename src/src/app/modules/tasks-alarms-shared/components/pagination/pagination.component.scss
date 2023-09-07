@@ -1,0 +1,17 @@
+@import 'colors';
+
+.limit-field {
+  width: 65px;
+}
+
+.page-field {
+  width: 50px;
+}
+
+:host ::ng-deep .ngx-pagination {
+  padding-left: 0;
+}
+
+:host ::ng-deep .ngx-pagination .current {
+  background-color: $color-primary;
+}

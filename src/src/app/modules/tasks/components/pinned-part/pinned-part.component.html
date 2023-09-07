@@ -1,0 +1,37 @@
+<div [formGroup]='form'>
+  <form-multi-select
+    *ngIf='(catalogs$ | async)?.length > 0'
+    [formGroup]='form.get(formNames.catalogs)'
+    [reset]='reset$'
+    [values]='catalogs$ | async'
+    label='form.label.catalogs'>
+  </form-multi-select>
+  <form-multi-select
+    *ngIf='(catalogs$ | async)?.length > 0'
+    [formGroup]='form.get(formNames.notes)'
+    [reset]='reset$'
+    [values]='notes$ | async'
+    label='form.label.notes'>
+  </form-multi-select>
+  <form-multi-select
+    *ngIf='(catalogs$ | async)?.length > 0'
+    [formGroup]='form.get(formNames.bookmarks)'
+    [reset]='reset$'
+    [values]='bookmarks$ | async'
+    label='form.label.bookmarks'>
+  </form-multi-select>
+  <form-multi-select
+    *ngIf='(catalogs$ | async)?.length > 0'
+    [formGroup]='form.get(formNames.files)'
+    [reset]='reset$'
+    [values]='files$ | async'
+    label='form.label.files'>
+  </form-multi-select>
+  <form-multi-select
+    *ngIf='(catalogs$ | async)?.length > 0'
+    [formGroup]='form.get(formNames.videos)'
+    [reset]='reset$'
+    [values]='videos$ | async'
+    label='form.label.videos'>
+  </form-multi-select>
+</div>

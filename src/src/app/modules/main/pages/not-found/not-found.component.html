@@ -1,0 +1,15 @@
+<div class='pa-1 big-container'>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        {{'headers.notFound' | translate}}
+      </mat-card-title>
+    </mat-card-header>
+    <img [src]='notFoundPath' alt='404' mat-card-image>
+    <mat-card-actions>
+      <button [routerLink]="['']" class='w-100' color='primary' mat-raised-button type='button'>
+        Dashboard
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

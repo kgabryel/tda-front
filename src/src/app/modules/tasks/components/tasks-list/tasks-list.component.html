@@ -1,0 +1,18 @@
+<shared-loader *ngIf='search$ | async'></shared-loader>
+<div *ngIf='(search$ | async) === false'>
+  <shared-pagination
+    *ngIf='(tasks$ | async)?.length > 5'
+    [config$]='config$'
+    [limitField]='limitField'
+    [pageField]='pageField'>
+  </shared-pagination>
+  <div *ngFor='let task of (tasks$ | async) | paginate : (config$ | async)'>
+    <tasks-task-view [id]='task.id'></tasks-task-view>
+  </div>
+  <shared-pagination
+    *ngIf='(tasks$ | async)?.length > 5'
+    [config$]='config$'
+    [limitField]='limitField'
+    [pageField]='pageField'>
+  </shared-pagination>
+</div>

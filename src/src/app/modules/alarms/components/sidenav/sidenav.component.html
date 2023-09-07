@@ -1,0 +1,6 @@
+<mat-drawer-container [ngClass]="{'small' : small$ | async}" autosize hasBackdrop='true'>
+  <mat-drawer (closed)='close()' [autoFocus]='false' [opened]='(showed$ | async).open' mode='over' position='start'>
+    <alarms-catalogs *ngIf='(showed$ | async).open' [alarmId]='(showed$ | async).alarmId'></alarms-catalogs>
+  </mat-drawer>
+  <ng-content></ng-content>
+</mat-drawer-container>

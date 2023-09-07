@@ -1,0 +1,40 @@
+<div class='pa-1'>
+  <div class='d-flex justify-center w-100 mb-2'>
+    <mat-button-toggle-group appearance='legacy'>
+      <mat-button-toggle (click)='setPrev()' class='nav-btn'>
+        <mat-icon class='small-btn'>
+          arrow_back_ios
+        </mat-icon>
+        <span class='big-btn'>
+          {{'dashboard.prev' | translate}}
+        </span>
+      </mat-button-toggle>
+      <mat-button-toggle (click)='setCurrent()' checked class='nav-btn'>
+        <mat-icon class='small-btn'>
+          more_horiz
+        </mat-icon>
+        <span class='big-btn'>
+           {{'dashboard.current' | translate}}
+        </span>
+      </mat-button-toggle>
+      <mat-button-toggle (click)='setNext()' class='nav-btn'>
+        <mat-icon class='small-btn'>
+          arrow_forward_ios
+        </mat-icon>
+        <span class='big-btn'>
+          {{'dashboard.next' | translate}}
+        </span>
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+  <mwl-calendar-month-view
+    (dayClicked)='dayClicked($event.day)'
+    (eventClicked)='handleEvent($event.event)'
+    [activeDayIsOpen]='activeDayIsOpen'
+    [events]='events$ | async'
+    [locale]='locale$ | async'
+    [refresh]='refresh'
+    [viewDate]='viewDate'
+    [weekStartsOn]='weekStartsOn'>
+  </mwl-calendar-month-view>
+</div>

@@ -1,0 +1,37 @@
+<h1 *ngIf='(state$ | async) !== 0' class='text-center text-bold text-primary'>
+  {{'form.questions.modifyPeriodicAlarm' | translate}}
+</h1>
+<button
+  (click)='close("notModify")'
+  *ngIf='(state$ | async) === 0'
+  class='my-1 w-100'
+  color='primary'
+  mat-raised-button
+  type='button'>
+  {{'form.actions.execute' | translate}}
+</button>
+<button
+  (click)='close("deactivate")'
+  *ngIf='(state$ | async) === 2'
+  class='my-1 w-100'
+  color='primary'
+  mat-raised-button
+  type='button'>
+  {{'form.actions.deactivate' | translate}}
+</button>
+<button (click)='close("notModify")' *ngIf='(state$ | async) !== 0' class='my-1 w-100' mat-raised-button type='button'>
+  {{'form.actions.notModify' | translate}}
+</button>
+<button
+  (click)='close("delete")'
+  *ngIf='(state$ | async) !== 0'
+  class='my-1 w-100'
+  color='warn'
+  mat-raised-button
+  type='button'>
+  {{'form.actions.delete' | translate}}
+</button>
+<hr />
+<button (click)='close(null)' class='my-1 w-100' mat-raised-button type='button'>
+  {{'form.actions.close' | translate}}
+</button>

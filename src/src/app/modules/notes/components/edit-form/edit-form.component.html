@@ -1,0 +1,9 @@
+<h1 class='text-center mb-0 mt-2 sidenav-header'>
+  {{'headers.noteUpdate' | translate}}
+</h1>
+<form (ngSubmit)='submit()' [autocomplete]='null | autocomplete' [formGroup]='form' class='pa-3'>
+  <notes-form [form]='form'></notes-form>
+  <button [disabled]='form.invalid' class='w-100' color='primary' mat-raised-button type='submit'>
+    {{'form.actions.update' | translate}}
+  </button>
+</form>

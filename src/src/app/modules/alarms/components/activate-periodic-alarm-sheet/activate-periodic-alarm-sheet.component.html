@@ -1,0 +1,24 @@
+<h1 *ngIf='(alarms$ | async).length !== 0' class='text-center text-bold text-primary'>
+  {{'form.questions.modifyPeriodicAlarm' | translate}}
+</h1>
+<button
+  (click)='close("notModify")'
+  *ngIf='(alarms$ | async).length === 0; else choices'
+  class='my-1 w-100'
+  color='primary'
+  mat-raised-button
+  type='button'>
+  {{'form.actions.execute' | translate}}
+</button>
+<ng-template #choices>
+  <button (click)='close("activate")' class='my-1 w-100' color='primary' mat-raised-button type='button'>
+    {{'form.actions.activate' | translate}}
+  </button>
+  <button (click)='close("notModify")' class='my-1 w-100' mat-raised-button type='button'>
+    {{'form.actions.notModify' | translate}}
+  </button>
+</ng-template>
+<hr />
+<button (click)='close(null)' class='my-1 w-100' mat-raised-button type='button'>
+  {{'form.actions.close' | translate}}
+</button>

@@ -1,0 +1,7 @@
+mat-card {
+  height: calc(100% - 10px);
+}
+
+mat-card > div {
+  height: calc(100% - 20px);
+}

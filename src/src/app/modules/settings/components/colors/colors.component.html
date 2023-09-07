@@ -1,0 +1,57 @@
+<p-table *ngIf='(colors$ | async)?.length > 0' [responsive]='true' [value]='colors$ | async'>
+  <ng-template pTemplate='header'>
+    <tr>
+      <th>
+        {{'headers.name' | translate}}
+      </th>
+      <th>
+        {{'headers.hex' | translate}}
+      </th>
+      <th>
+        {{'headers.color' | translate}}
+      </th>
+      <th class='actions-column'></th>
+    </tr>
+  </ng-template>
+  <ng-template let-color pTemplate='body'>
+    <tr>
+      <td>
+        <span class='p-column-title'>
+          {{'headers.name' | translate}}
+        </span>
+        <span>
+        {{color.name}}
+        </span>
+      </td>
+      <td>
+        <span class='p-column-title'>
+          {{'headers.hex' | translate}}
+        </span>
+        <span>
+          {{color.color}}
+        </span>
+      </td>
+      <td>
+        <span class='p-column-title'>
+          {{'headers.color' | translate}}
+        </span>
+        <div
+          (click)='copy(color.color)'
+          [matTooltip]="'tooltips.copy' | translate"
+          [style.background-color]='color.color'
+          class='color-container c-pointer'>
+        </div>
+      </td>
+      <td>
+        <button (click)='delete(color.id)' class='big-btn mx-1' color='warn' mat-raised-button type='button'>
+          {{'tooltips.delete' | translate}}
+        </button>
+        <button (click)='delete(color.id)' class='small-btn' mat-icon-button type='button'>
+          <mat-icon [matTooltip]="'tooltips.delete' | translate">
+            delete
+          </mat-icon>
+        </button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

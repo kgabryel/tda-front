@@ -1,0 +1,10 @@
+version: '3'
+services:
+  angular:
+    build: ./angular
+    container_name: angular
+    volumes:
+      - ./../src/:/src
+    ports:
+      - '4200:4200'
+    tty: true

@@ -1,0 +1,5 @@
+<shared-pagination *ngIf='tasks.length > 5' [config$]='config$' [limitField]='limitField' [pageField]='pageField'>
+</shared-pagination>
+<tasks-subtask *ngFor='let task of tasks | paginate : (config$ | async)' [task]='task'></tasks-subtask>
+<shared-pagination *ngIf='tasks.length > 5' [config$]='config$' [limitField]='limitField' [pageField]='pageField'>
+</shared-pagination>

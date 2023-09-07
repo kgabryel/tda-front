@@ -1,0 +1,17 @@
+<h1 class='text-center mb-0 mt-2 sidenav-header'>
+  {{'headers.connectedTasks' | translate}}
+</h1>
+<div class='pa-3 pb-0'>
+  <mat-form-field *ngIf='tasks.length > 0' class='w-100'>
+    <mat-label>
+      {{'form.label.search' | translate}}
+    </mat-label>
+    <input [formControl]='name' matInput type='text' />
+  </mat-form-field>
+  <mat-list>
+    <mat-list-item *ngFor='let task of items'>
+      <simple-view-task-single *ngIf='task.periodic === false' [task]='task' class='w-100'></simple-view-task-single>
+      <simple-view-task-periodic *ngIf='task.periodic === true' [task]='task' class='w-100'></simple-view-task-periodic>
+    </mat-list-item>
+  </mat-list>
+</div>

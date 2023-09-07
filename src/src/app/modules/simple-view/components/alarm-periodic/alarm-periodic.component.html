@@ -1,0 +1,58 @@
+<div class='pa-1 border-radius-5 hover-activator basic-bg-hover'>
+  <div class='d-flex h-45px'>
+    <div class='w-100 d-flex align-center'>
+      <ng-container *ngIf='!alarm.active'>
+        <button class='bg-white' mat-raised-button type='button'>
+          <mat-icon>
+            close
+          </mat-icon>
+          <span>
+            {{'alarms.alarmInactive' | translate}}
+          </span>
+        </button>
+      </ng-container>
+      <ng-container *ngIf='alarm.active'>
+        <button class='bg-green' mat-raised-button type='button'>
+          <mat-icon>
+            done
+          </mat-icon>
+          <span>
+            {{'alarms.alarmActive' | translate}}
+          </span>
+        </button>
+      </ng-container>
+      <div [ngClass]="{'hidden' : small$ | async}" class='single-line'>
+        <p class='mb-0 ml-2 text-underline-hover'>
+          {{alarm.name}}
+        </p>
+        <small class='ml-2'>
+          {{'shared.from' | translate}}{{alarm.start | date : 'dd-MM-y'}}
+          <ng-container *ngIf='alarm.stop !== null'> {{'shared.to' | translate}}{{alarm.stop | date : 'dd-MM-y'}}</ng-container>
+          ({{alarm.interval}} {{'shared.' + alarm.intervalType | translate}})
+        </small>
+      </div>
+    </div>
+    <span class='d-flex-hover'>
+      <button [routerLink]='[alarm.id | alarmUrl]' mat-icon-button type='button'>
+        <mat-icon [matTooltip]="'tooltips.goTo' | translate">
+          visibility
+        </mat-icon>
+      </button>
+      <button (click)='remove()' mat-icon-button type='button'>
+        <mat-icon [matTooltip]="'tooltips.delete' | translate">
+          delete
+        </mat-icon>
+      </button>
+    </span>
+  </div>
+  <div [ngClass]="{'hidden' : !(small$ | async)}" class='single-line'>
+    <p class='mb-0 text-underline-hover'>
+      {{alarm.name}}
+    </p>
+    <small>
+      {{'shared.from' | translate}}{{alarm.start | date : 'dd-MM-y'}}
+      <ng-container *ngIf='alarm.stop !== null'> {{'shared.to' | translate}}{{alarm.stop | date : 'dd-MM-y'}}</ng-container>
+      ({{alarm.interval}} {{'shared.' + alarm.intervalType | translate}})
+    </small>
+  </div>
+</div>

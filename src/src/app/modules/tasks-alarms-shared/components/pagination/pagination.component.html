@@ -1,0 +1,34 @@
+<div class='pa-2 mt-1 d-flex justify-center'>
+  <mat-form-field class='limit-field mr-2'>
+    <mat-label>
+      {{'form.label.length' | translate}}
+    </mat-label>
+    <mat-select (selectionChange)='changePageLimit($event)' [formControl]='limitField'>
+      <mat-option *ngFor='let value of pageSizeOptions' [value]='value'>
+        {{value}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <pagination-controls
+    (pageChange)='onPageChange($event)'
+    [id]='(config$ | async).id'
+    [nextLabel]="'form.label.nextPage' | translate"
+    [previousLabel]="'form.label.previousPage' | translate"
+    autoHide='true'
+    responsive='true'>
+  </pagination-controls>
+  <mat-form-field
+    *ngIf='((config$ | async).totalItems > (config$ | async).itemsPerPage) && (maxPage$ | async) > 1'
+    class='page-field ml-2'>
+    <mat-label>
+      {{'form.label.page' | translate}}
+    </mat-label>
+    <input
+      (change)='changePage()'
+      [autocomplete]='null | autocomplete'
+      [formControl]='pageField'
+      [max]='maxPage$ | async'
+      [min]='1'
+      matInput type='number' />
+  </mat-form-field>
+</div>

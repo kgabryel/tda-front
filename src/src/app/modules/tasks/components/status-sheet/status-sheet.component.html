@@ -1,0 +1,21 @@
+<mat-nav-list>
+  <ng-container *ngFor='let status of taskStatuses'>
+    <div [matTooltip]='getTranslations(status.name) !== null ? (getTranslations(status.name) | translate) : null'>
+      <a
+        (click)='changeStatus(status.id)'
+        *ngIf='inactive !== status.id'
+        [disabled]='doneName === status.name && doneDisabled'
+        [ngStyle]="{'color' : !(doneName === status.name && doneDisabled)? status.color : 'grey' }"
+        mat-list-item>
+        <button mat-icon-button type='button'>
+          <mat-icon>
+            {{status.icon}}
+          </mat-icon>
+        </button>
+        <p class='mb-0 w-100'>
+          {{'taskStatuses.' + status.name | translate}}
+        </p>
+      </a>
+    </div>
+  </ng-container>
+</mat-nav-list>

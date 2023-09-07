@@ -1,0 +1,153 @@
+<div class='pa-1 hover-activator basic-bg-hover border-radius-5'>
+  <div class='d-flex align-center border-radius-5 h-45px'>
+    <div class='mr-1'>
+      <button
+        (click)='openStatusSheet()'
+        [matTooltip]="'tooltips.changeStatus' | translate"
+        [ngClass]="{'small-button' : smallButtons$ | async}"
+        [style.backgroundColor]='status.color'
+        class='text-white'
+        mat-raised-button
+        onclick='this.blur();'
+        type='button'>
+        <mat-icon>
+          {{status.icon}}
+        </mat-icon>
+        <span [ngClass]="{'hidden' : smallButtons$ | async}">
+          {{'taskStatuses.' + status.name | translate}}
+        </span>
+      </button>
+    </div>
+    <p class='w-100 border-radius-5 mb-0 text-underline-hover'>
+      {{task.name}}
+    </p>
+    <div *ngIf='!(small$ | async)' class='more d-flex align-center'>
+      <p *ngIf='task.date !== null' class='date mb-0 d-inline-block text-underline-hover'>
+        {{task.date | date : 'dd-MM-y'}}
+      </p>
+      <div *ngIf='task.alarm !== null' class='d-block-hover'>
+        <div class='multiple-buttons-containers'>
+          <button [routerLink]='[task.alarm | alarmUrl]' class='bg-yellow' mat-raised-button type='button'>
+            <mat-icon>
+              alarm
+            </mat-icon>
+            <span>
+               {{'tasks.alarm' | translate}}
+            </span>
+          </button>
+          <button
+            (click)='openAlarmSheet()'
+            *ngIf='task.group === null'
+            class='bg-yellow icon-button'
+            mat-raised-button
+            type='button'>
+            <mat-icon [matTooltip]='"tooltips.edit" | translate'>
+              edit
+            </mat-icon>
+            <span></span>
+          </button>
+        </div>
+      </div>
+      <div *ngIf='task.alarm === null && task.group === null' class='d-block-hover'>
+        <button
+          (click)='openAlarmSheet()'
+          [matTooltip]="'tooltips.assignAlarm' | translate"
+          mat-icon-button
+          onclick='this.blur();'
+          type='button'>
+          <mat-icon>
+            alarm
+          </mat-icon>
+        </button>
+      </div>
+      <button
+        (click)='changeMain()'
+        *ngIf='task.group === null'
+        [matTooltip]="'tooltips.changeMainTask' | translate"
+        class='d-block-hover'
+        mat-icon-button
+        onclick='this.blur();'
+        type='button'>
+        <mat-icon>
+          task
+        </mat-icon>
+      </button>
+      <button
+        [routerLink]='[task.id | taskUrl]'
+        class='d-block-hover'
+        mat-icon-button
+        onclick='this.blur();'
+        type='button'>
+        <mat-icon [matTooltip]='"tooltips.goTo" | translate'>
+          visibility
+        </mat-icon>
+      </button>
+      <button (click)='deleteTask()' class='d-block-hover' mat-icon-button onclick='this.blur();' type='button'>
+        <mat-icon [matTooltip]='"tooltips.delete" | translate'>
+          delete
+        </mat-icon>
+      </button>
+    </div>
+  </div>
+  <p *ngIf='task.date !== null && (small$ | async)' class='date mb-1 mt-1 d-inline-block text-underline-hover'>
+    {{task.date | date : 'dd-MM-y'}}
+  </p>
+  <div *ngIf='small$ | async' class='d-flex justify-space-between'>
+    <div *ngIf='task.alarm !== null' class='d-block-hover'>
+      <div class='multiple-buttons-containers'>
+        <button [routerLink]='[task.alarm | alarmUrl]' class='bg-yellow' mat-raised-button type='button'>
+          <mat-icon>
+            alarm
+          </mat-icon>
+          <span>
+            {{'tasks.alarm' | translate}}
+          </span>
+        </button>
+        <button
+          (click)='openAlarmSheet()'
+          *ngIf='task.group === null'
+          class='bg-yellow icon-button'
+          mat-raised-button
+          type='button'>
+          <mat-icon [matTooltip]='"tooltips.edit" | translate'>
+            edit
+          </mat-icon>
+          <span></span>
+        </button>
+      </div>
+    </div>
+    <div *ngIf='task.alarm === null && task.group === null' class='d-block-hover'>
+      <button (click)='openAlarmSheet()' mat-icon-button onclick='this.blur();' type='button'>
+        <mat-icon>
+          alarm
+        </mat-icon>
+      </button>
+    </div>
+    <button
+      (click)='changeMain()'
+      *ngIf='task.group === null'
+      class='d-block-hover'
+      mat-icon-button
+      onclick='this.blur();'
+      type='button'>
+      <mat-icon>
+        task
+      </mat-icon>
+    </button>
+    <button
+      [routerLink]='[task.id | taskUrl]'
+      class='d-block-hover'
+      mat-icon-button
+      onclick='this.blur();'
+      type='button'>
+      <mat-icon [matTooltip]='"tooltips.goTo" | translate'>
+        visibility
+      </mat-icon>
+    </button>
+    <button (click)='deleteTask()' class='d-block-hover' mat-icon-button onclick='this.blur();' type='button'>
+      <mat-icon [matTooltip]='"tooltips.delete" | translate'>
+        delete
+      </mat-icon>
+    </button>
+  </div>
+</div>

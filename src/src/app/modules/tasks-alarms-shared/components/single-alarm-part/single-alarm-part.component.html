@@ -1,0 +1,22 @@
+<div [formGroup]='form'>
+  <div class='mb-1'>
+    <form-text-input
+      [errors]='errors.name'
+      [field]='form.get(formNames.name)'
+      [maxLength]='maxNameLength'
+      label='form.label.name'
+      part='name'
+      prefix='alarms'>
+    </form-text-input>
+  </div>
+  <p-editor [formControl]='form.get(formNames.content)' [style]="{'height' : '320px'}"></p-editor>
+  <div class='mt-1'>
+    <form-multi-select
+      *ngIf='(catalogs$ | async)?.length > 0'
+      [formGroup]='form.get(formNames.catalogs)'
+      [reset]='reset$'
+      [values]='catalogs$ | async'
+      label='form.label.catalogs'>
+    </form-multi-select>
+  </div>
+</div>

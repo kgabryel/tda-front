@@ -1,0 +1,52 @@
+<form (ngSubmit)='submit()' [autocomplete]='null | autocomplete' [formGroup]='form'>
+  <div class='mt-2 mb-2 d-flex justify-center'>
+    <mat-slide-toggle [formControl]="form.get('mainTask')" color='primary'>
+      {{'form.label.mainTask' | translate}}
+    </mat-slide-toggle>
+    <mat-slide-toggle [formControl]="form.get('alarmIncluded')" class='ml-2' color='primary'>
+      {{'form.label.alarmIncluded' | translate}}
+    </mat-slide-toggle>
+  </div>
+  <div class='mt-2 mb-2 d-flex justify-center overflow-x-hidden'>
+    <mat-vertical-stepper #stepper>
+      <mat-step>
+        <ng-template matStepLabel>
+          {{'headers.task' | translate}}
+        </ng-template>
+        <tasks-single-task-part [form]="form.get('task')" [mainTask$]='mainTask$'></tasks-single-task-part>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>
+          {{'headers.pinnedGroup' | translate}}
+        </ng-template>
+        <tasks-single-pinned-part [form]="form.get('pinnedGroup')" [reset$]='reset$'></tasks-single-pinned-part>
+      </mat-step>
+      <mat-step *ngIf='alarmShowed$ | async'>
+        <ng-template matStepLabel>
+          {{'headers.alarm' | translate}}
+        </ng-template>
+        <shared-single-alarm-part [form]="form.get('alarm')" [reset$]='reset$'></shared-single-alarm-part>
+      </mat-step>
+      <mat-step *ngIf='alarmShowed$ | async'>
+        <ng-template matStepLabel>
+          {{'headers.notifications' | translate}}
+        </ng-template>
+        <shared-single-notifications [parentForm]='form' [reset$]='reset$'></shared-single-notifications>
+      </mat-step>
+    </mat-vertical-stepper>
+  </div>
+  <div class='d-flex justify-center mb-2'>
+    <button [disabled]='form.invalid' class='mr-1' color='primary' mat-raised-button type='submit'>
+      {{'form.actions.create' | translate}}
+    </button>
+    <button
+      (click)='submit(false)'
+      [disabled]='form.invalid'
+      class='ml-1'
+      color='primary'
+      mat-raised-button
+      type='button'>
+      {{'form.actions.createAndContinue' | translate}}
+    </button>
+  </div>
+</form>

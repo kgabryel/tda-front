@@ -1,0 +1,25 @@
+<div *ngIf='alarmId !== null'>
+  <div class='multiple-buttons-containers ml-1'>
+    <button [routerLink]='[alarmId | alarmUrl]' class='bg-yellow' mat-raised-button type='button'>
+      <mat-icon>
+        alarm
+      </mat-icon>
+      <span>
+        {{'tasks.alarm' | translate}}
+      </span>
+    </button>
+    <button (click)='emitStartEdit()' *ngIf='editable' class='bg-yellow icon-button' mat-raised-button type='button'>
+      <mat-icon [matTooltip]='"tooltips.edit" | translate'>
+        edit
+      </mat-icon>
+      <span></span>
+    </button>
+  </div>
+</div>
+<div *ngIf='alarmId === null && editable'>
+  <button (click)='emitStartEdit()' mat-icon-button onclick='this.blur();' type='button'>
+    <mat-icon [matTooltip]="'tooltips.addAlarm' | translate">
+      alarm
+    </mat-icon>
+  </button>
+</div>

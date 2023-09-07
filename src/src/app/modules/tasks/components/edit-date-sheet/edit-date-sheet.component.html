@@ -1,0 +1,17 @@
+<mat-nav-list>
+  <a (click)='selectAction(1)' *ngIf='!empty' mat-list-item>
+    <p class='mb-0'>
+      {{'form.actions.clear' | translate}}
+    </p>
+  </a>
+  <a (click)='selectAction(2)' mat-list-item>
+    <p class='mb-0'>
+      {{'form.actions.edit' | translate}}
+    </p>
+  </a>
+  <a (click)='selectAction(3)' mat-list-item>
+    <p class='mb-0'>
+      {{'form.actions.cancel' | translate}}
+    </p>
+  </a>
+</mat-nav-list>

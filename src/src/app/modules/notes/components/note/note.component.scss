@@ -1,0 +1,55 @@
+.mat-card-content {
+  height: calc(100% - 75px);
+  overflow: hidden;
+  padding: 16px;
+  white-space: pre-wrap;
+}
+
+.mat-card-content:hover {
+  overflow: auto;
+}
+
+.buttons {
+  display: none;
+}
+
+.mat-card {
+  height: calc(100% - 10px);
+}
+
+:host ::ng-deep mat-card .mat-card-header-text {
+  display: none;
+}
+
+.small-buttons {
+  display: block;
+}
+
+@media only screen and (min-width: 451px) {
+  .small-buttons {
+    display: none;
+  }
+
+  .mat-card:hover .buttons {
+    display: block;
+  }
+
+  .mat-card:hover .mat-card-header > div {
+    width: calc(100% - 210px);
+  }
+}
+
+.mat-card {
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+}
+
+.mat-card-header {
+  filter: brightness(0.7);
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+:host ::ng-deep mat-card .mat-card-header-text {
+  display: none;
+}

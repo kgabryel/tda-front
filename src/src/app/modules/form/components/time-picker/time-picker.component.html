@@ -1,0 +1,32 @@
+<mat-form-field [formGroup]='parentForm' class='w-100'>
+  <mat-label>
+    {{label | translate}}
+  </mat-label>
+  <input [formControlName]='formNames.notificationTime' [format]='24' [ngxTimepicker]='picker' matInput readonly />
+  <button
+    (click)='picker.open(); $event.stopPropagation();'
+    mat-icon-button
+    matSuffix
+    onclick='this.blur();'
+    type='button'>
+    <mat-icon>
+      schedule
+    </mat-icon>
+  </button>
+  <ngx-material-timepicker
+    #picker
+    [cancelBtnTmpl]='cancelBtn'
+    [confirmBtnTmpl]='confirmBtn'
+    [theme]='theme$ | async'>
+  </ngx-material-timepicker>
+</mat-form-field>
+<ng-template #cancelBtn>
+  <button class='mr-2' color='primary' mat-raised-button type='button'>
+    {{'form.actions.close' | translate}}
+  </button>
+</ng-template>
+<ng-template #confirmBtn>
+  <button color='primary' mat-raised-button type='button'>
+    {{'form.actions.select' | translate}}
+  </button>
+</ng-template>

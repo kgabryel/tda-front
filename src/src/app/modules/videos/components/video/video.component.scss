@@ -1,0 +1,13 @@
+:host ::ng-deep iframe {
+  max-width: 100% !important;
+}
+
+:host ::ng-deep mat-card .mat-card-header-text {
+  display: none;
+}
+
+.loading {
+  background-image: url('loading.gif');
+  background-repeat: no-repeat;
+  background-position: center center;
+}

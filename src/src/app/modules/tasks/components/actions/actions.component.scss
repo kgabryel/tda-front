@@ -1,0 +1,11 @@
+.active-section {
+  -webkit-transform: rotate(-90deg) !important;
+  -ms-transform: rotate(-90deg) !important;
+  transform: rotate(-90deg) !important;
+}
+
+.section-button {
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+  transition: .5s all;
+}

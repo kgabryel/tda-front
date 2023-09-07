@@ -1,0 +1,17 @@
+<mat-form-field class='w-100'>
+  <mat-label>
+    {{label | translate}}
+  </mat-label>
+  <input [autocomplete]='null | autocomplete' [formControl]='field' [maxLength]='maxLength' matInput type='text' />
+  <mat-hint align='end'>
+    {{length$ | async}} / {{maxLength}}
+  </mat-hint>
+</mat-form-field>
+<div *ngIf='field.invalid && field.touched' class='mb-1'>
+  <form-errors-container
+    [errors]='errors'
+    [input]='field'
+    [part]='part'
+    [prefix]='prefix'>
+  </form-errors-container>
+</div>

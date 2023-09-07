@@ -1,0 +1,23 @@
+<mat-drawer-container [ngClass]="{'small' : small$ | async}" autosize hasBackdrop='true'>
+  <mat-drawer (closed)='changeStatus($event)' [opened]='(showed$ | async).open' mode='over' position='end'>
+    <notes-add-form (formSubmitted)='changeStatus(false)' *ngIf='(showed$ | async).model === null'>
+    </notes-add-form>
+    <notes-edit-form
+      (formSubmitted)='changeStatus(false)'
+      *ngIf='(showed$ | async).model !== null'
+      [note]='(showed$ | async).model'>
+    </notes-edit-form>
+  </mat-drawer>
+  <mat-drawer
+    (closed)='closePinned()'
+    [autoFocus]='false'
+    [opened]='(showedPinned$ | async).open'
+    mode='over'
+    position='start'>
+    <shared-pinned-catalogs *ngIf='(showedPinned$ | async).type === 1' [catalogs]='(showedPinned$ | async).catalogs'>
+    </shared-pinned-catalogs>
+    <shared-pinned-tasks *ngIf='(showedPinned$ | async).type === 2' [tasks]='(showedPinned$ | async).tasks'>
+    </shared-pinned-tasks>
+  </mat-drawer>
+  <ng-content></ng-content>
+</mat-drawer-container>

@@ -1,0 +1,36 @@
+<div *ngIf='taskId'>
+  <div class='multiple-buttons-containers'>
+    <button
+      [routerLink]='[taskId | taskUrl]'
+      [style.background-color]='status?.color'
+      class='text-white'
+      mat-raised-button
+      type='button'>
+      <mat-icon>
+        {{status?.icon}}
+      </mat-icon>
+      <span>
+        {{'alarms.task' | translate}}
+      </span>
+    </button>
+    <button
+      (click)='emitStartEdit()'
+      *ngIf='editable'
+      [style.background-color]='status?.color'
+      class='icon-button text-white'
+      mat-raised-button
+      type='button'>
+      <mat-icon [matTooltip]="'tooltips.edit' | translate">
+        edit
+      </mat-icon>
+      <span></span>
+    </button>
+  </div>
+</div>
+<div *ngIf='taskId === null && editable'>
+  <button (click)='emitStartEdit()' class='pa-0' mat-icon-button onclick='this.blur();' type='button'>
+    <mat-icon [matTooltip]="'tooltips.connectTask' | translate">
+      task
+    </mat-icon>
+  </button>
+</div>

@@ -1,0 +1,33 @@
+<h1 class='text-center mb-0 mt-2 sidenav-header'>
+  {{'headers.connectedBookmarks' | translate}}
+</h1>
+<div class='pa-3 pb-0'>
+  <mat-form-field *ngIf='(bookmarks$ | async).length > 0 || name.value !== ""' class='w-100'>
+    <mat-label>
+      {{'form.label.search' | translate}}
+    </mat-label>
+    <input [autocomplete]='null | autocomplete' [formControl]='name' matInput type='text' />
+  </mat-form-field>
+  <mat-list>
+    <mat-list-item *ngFor='let bookmark of (bookmarks$ | async)'>
+      <simple-view-bookmark
+        (undo)='delete($event)'
+        [bookmark]='bookmark.item'
+        [delete]='(editable$ | async) && bookmark.deletable'
+        class='w-100'>
+      </simple-view-bookmark>
+    </mat-list-item>
+  </mat-list>
+</div>
+<form
+  (ngSubmit)='submit()'
+  *ngIf='editable$ | async'
+  [autocomplete]='null | autocomplete'
+  [formGroup]='form'
+  class='pa-3 pt-0'>
+  <form-select [formGroup]='form' [values]='availableBookmarks$ | async' label='form.label.add'></form-select>
+  <button [disabled]='form.invalid' class='w-100' color='primary' mat-raised-button type='submit'>
+    {{'form.actions.add' | translate}}
+  </button>
+</form>
+

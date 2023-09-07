@@ -1,0 +1,66 @@
+<div class='notification border-radius-5 pa-1 basic-bg-hover'>
+  <div class='big-notification d-flex align-center'>
+    <ng-container *ngIf='notification.checked'>
+      <button
+        (click)='switchNotification()'
+        [ngClass]="{'small-button' : small$ | async}"
+        class='bg-white'
+        mat-raised-button
+        type='button'>
+        <mat-icon>
+          close
+        </mat-icon>
+        <span [ngClass]="{'hidden' : small$ | async}">
+          {{'alarms.notificationUnchecked' | translate}}
+        </span>
+      </button>
+    </ng-container>
+    <ng-container *ngIf='!notification.checked'>
+      <button
+        (click)='switchNotification()'
+        [ngClass]="{'small-button' : small$ | async}"
+        class='bg-green'
+        mat-raised-button
+        type='button'>
+        <mat-icon>
+          done
+        </mat-icon>
+        <span [ngClass]="{'hidden' : small$ | async}">
+          {{'alarms.notificationChecked' | translate}}
+        </span>
+      </button>
+    </ng-container>
+    <p class='mb-0 ml-1'>
+      {{time | date : 'dd-MM-y HH:mm'}}
+    </p>
+    <div class='d-flex align-center ml-auto'>
+      <div
+        *ngIf='disableEmail && notification.types.length === 1 && getNotificationType(notification.types[0]).name === emailType'
+        class='mr-1'>
+        <mat-icon [matTooltip]='"tooltips.notificationError"' class='icon' color='warn'>
+          error_outline
+        </mat-icon>
+      </div>
+      <mat-chip-list *ngIf='!(smallNotification$ | async)'>
+        <mat-chip
+          *ngFor='let type of notification.types'
+          [disabled]='disableEmail && getNotificationType(type).name === emailType'
+          [style.background-color]='getNotificationType(type).color'>
+          {{getNotificationType(type).name}}
+        </mat-chip>
+      </mat-chip-list>
+      <button (click)='deleteNotification()' *ngIf='alarm.group === null' mat-icon-button type='button'>
+        <mat-icon [matTooltip]='"tooltips.delete" | translate'>
+          delete
+        </mat-icon>
+      </button>
+    </div>
+  </div>
+  <div *ngIf='smallNotification$ | async' class='mt-1'>
+    <mat-chip-list>
+      <mat-chip *ngFor='let type of notification.types' [style.background-color]='getNotificationType(type).color'>
+        {{getNotificationType(type).name}}
+      </mat-chip>
+    </mat-chip-list>
+  </div>
+</div>

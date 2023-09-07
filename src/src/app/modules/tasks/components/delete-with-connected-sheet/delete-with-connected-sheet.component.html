@@ -1,0 +1,63 @@
+<div class='mt-2 text-center mb-2'>
+  <mat-icon class='sheet-icon' color='warn'>
+    error_outline
+  </mat-icon>
+</div>
+<mat-accordion multi='false'>
+  <mat-expansion-panel [expanded]='step === 1'>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <h1 class='text-center text-primary text-bold mt-3'>
+          {{'form.questions.deleteConnectedAlarm' | translate}}
+          <ng-container *ngIf='deleteAlarm !== null'>
+            [{{deleteAlarm ? ('form.actions.yes' | translate) : ('form.actions.no' | translate)}}]
+          </ng-container>
+        </h1>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class='two-buttons-container mb-3'>
+      <button (click)='setDeleteAlarm(true)' color='warn' mat-raised-button type='button'>
+        {{'form.actions.yes' | translate}}
+      </button>
+      <button (click)='setDeleteAlarm(false)' color='primary' mat-raised-button type='button'>
+        {{'form.actions.no' | translate}}
+      </button>
+    </div>
+    <p *ngIf='tooltip' class='mb-0 text-center'>
+      {{'form.info.deleteAlarm' | translate}}
+    </p>
+  </mat-expansion-panel>
+  <mat-expansion-panel [expanded]='step === 2'>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <h1 class='text-center'>
+          {{'form.questions.deleteConnectedTasks' | translate}}
+          <ng-container *ngIf='deleteTasks !== null'>
+            [{{deleteTasks ? ('form.actions.yes' | translate) : ('form.actions.no' | translate)}}]
+          </ng-container>
+        </h1>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class='two-buttons-container mb-3'>
+      <button (click)='setDeleteTasks(true)' color='warn' mat-raised-button type='button'>
+        {{'form.actions.yes' | translate}}
+      </button>
+      <button (click)='setDeleteTasks(false)' color='primary' mat-raised-button type='button'>
+        {{'form.actions.no' | translate}}
+      </button>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+<div class='two-buttons-container mb-3 mt-3'>
+  <button
+    (click)='delete()'
+    [disabled]='deleteAlarm === null || deleteTasks === null'
+    color='warn'
+    mat-raised-button
+    type='button'>
+    {{'form.actions.delete' | translate}}
+  </button>
+  <button color='primary' mat-stroked-button type='button'>
+    {{'form.actions.cancel' | translate}}
+  </button>
+</div>

@@ -1,0 +1,19 @@
+<div class='mt-2 text-center'>
+  <mat-icon class='sheet-icon' color='warn'>
+    error_outline
+  </mat-icon>
+</div>
+<h1 class='text-center text-bold text-primary'>
+  {{question | translate}}
+</h1>
+<div class='three-buttons-container mb-3'>
+  <button (click)='delete(true)' color='warn' mat-raised-button type='button'>
+    {{'form.actions.yes' | translate}}
+  </button>
+  <button (click)='delete(false)' color='primary' mat-raised-button type='button'>
+    {{'form.actions.no' | translate}}
+  </button>
+  <button (click)='delete(null)' color='primary' mat-stroked-button type='button'>
+    {{'form.actions.cancel' | translate}}
+  </button>
+</div>

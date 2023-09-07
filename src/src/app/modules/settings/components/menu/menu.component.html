@@ -1,0 +1,19 @@
+<mat-card>
+  <mat-card-content>
+    <mat-tab-group dynamicHeight mat-align-tabs='center'>
+      <mat-tab [label]="'headers.settings' | translate">
+        <settings-settings></settings-settings>
+      </mat-tab>
+      <mat-tab *ngIf='!(fbAccount$ | async)' [label]="'headers.changePassword' | translate">
+        <settings-change-password></settings-change-password>
+      </mat-tab>
+      <mat-tab [label]="'headers.email' | translate">
+        <settings-manage-email></settings-manage-email>
+      </mat-tab>
+      <mat-tab [label]="'headers.savedColors' | translate">
+        <settings-add-color></settings-add-color>
+        <settings-colors></settings-colors>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card-content>
+</mat-card>

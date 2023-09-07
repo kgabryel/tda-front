@@ -1,0 +1,12 @@
+mat-drawer-container {
+  height: calc(100vh - 64px);
+}
+
+.small {
+  height: calc(100vh - 112px);
+}
+
+mat-drawer {
+  max-width: calc(100vw - 50px);
+  width: 500px;
+}

@@ -1,0 +1,81 @@
+<div *ngIf='(dataTask$ | async) !== undefined' class='d-flex w-100 justify-space-between'>
+  <button
+    (click)='emitShowTasks()'
+    [disabled]='!task.periodic && (task.parentId !== null || task.group !== null || task.subtasks.length === 0)'
+    [ngClass]="{'active-section' : activeSection === 0}"
+    class='section-button'
+    mat-icon-button
+    onclick='this.blur();'
+    type='button'>
+    <mat-icon [matTooltip]="task.periodic ? ('tooltips.showTasks' | translate) : ('tooltips.showSubtasks' | translate | pinnedTooltip : task.subtasks.length)">
+      double_arrow
+    </mat-icon>
+  </button>
+  <button
+    (click)='emitShowCatalogs()'
+    [disabled]='!task.periodic && task.group !== null && ((dataTask$ | async).catalogs.length === 0)'
+    mat-icon-button
+    onclick='this.blur();'
+    type='button'>
+    <mat-icon [matTooltip]="(dataTask$ | async) === null ? null : 'tooltips.catalogs' | translate | pinnedTooltip : (dataTask$ | async).catalogs.length : (dataTask$ | async).subtasksCatalogs.length">
+      bookmark
+    </mat-icon>
+  </button>
+  <button
+    (click)='emitShowNotes()'
+    [disabled]='!task.periodic && task.group !== null && ((dataTask$ | async).notes.length === 0)'
+    mat-icon-button
+    onclick='this.blur();'
+    type='button'>
+    <mat-icon [matTooltip]="(dataTask$ | async) === null ? null : 'tooltips.notes' | translate | pinnedTooltip : (dataTask$ | async).notes.length : (dataTask$ | async).subtasksNotes.length">
+      notes
+    </mat-icon>
+  </button>
+  <button
+    (click)='emitShowBookmarks()'
+    [disabled]='!task.periodic && task.group !== null && ((dataTask$ | async).bookmarks.length === 0)'
+    mat-icon-button
+    onclick='this.blur();'
+    type='button'>
+    <mat-icon [matTooltip]="(dataTask$ | async) === null ? null : 'tooltips.bookmarks' | translate | pinnedTooltip : (dataTask$ | async).bookmarks.length : (dataTask$ | async).subtasksBookmarks.length">
+      link
+    </mat-icon>
+  </button>
+  <button
+    (click)='emitShowFiles()'
+    [disabled]='!task.periodic && task.group !== null && ((dataTask$ | async).files.length === 0)'
+    mat-icon-button
+    onclick='this.blur();'
+    type='button'>
+    <mat-icon [matTooltip]="(dataTask$ | async) === null ? null : 'tooltips.files' | translate | pinnedTooltip : (dataTask$ | async).files.length : (dataTask$ | async).subtasksFiles.length">
+      attach_file
+    </mat-icon>
+  </button>
+  <button
+    (click)='emitShowVideos()'
+    [disabled]='!task.periodic && task.group !== null && ((dataTask$ | async).videos.length === 0)'
+    mat-icon-button
+    onclick='this.blur();'
+    type='button'>
+    <mat-icon [matTooltip]="(dataTask$ | async) === null ? null : 'tooltips.videos' | translate | pinnedTooltip : (dataTask$ | async).videos.length : (dataTask$ | async).subtasksVideos.length">
+      videocam
+    </mat-icon>
+  </button>
+  <button (click)='emitDelete()' mat-icon-button onclick='this.blur();' type='button'>
+    <mat-icon [matTooltip]="'tooltips.delete' | translate">
+      delete
+    </mat-icon>
+  </button>
+  <button
+    (click)='emitShowContent()'
+    [disabled]='!task.periodic && task.group !== null && ((dataTask$ | async).content | emptyString)'
+    [ngClass]="{'active-section' : activeSection === 1}"
+    class='section-button'
+    mat-icon-button
+    onclick='this.blur();'
+    type='button'>
+    <mat-icon [matTooltip]="'tooltips.showContent' | translate">
+      double_arrow
+    </mat-icon>
+  </button>
+</div>

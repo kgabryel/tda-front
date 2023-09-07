@@ -1,0 +1,9 @@
+<videos-sidenav>
+  <shared-loader *ngIf='search$ | async'></shared-loader>
+  <ng-container *ngIf='(search$ | async) === false'>
+    <div class='pa-4 pb-0 d-flex justify-center flex-row-wrap'>
+      <videos-video-view *ngFor='let video of (videos$ | async)' [id]='video.id'></videos-video-view>
+    </div>
+    <videos-add-button></videos-add-button>
+  </ng-container>
+</videos-sidenav>

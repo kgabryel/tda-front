@@ -1,0 +1,10 @@
+<button
+  *ngIf='(length$ | async) > 0'
+  [matTooltip]="'tooltips.tasksToDo' | translate"
+  [routerLink]='[toDoPath]'
+  mat-icon-button
+  type='button'>
+  <mat-icon [matBadge]='length$ | async' color='basic' matBadgeColor='accent' matBadgePosition='after'>
+    rule
+  </mat-icon>
+</button>
