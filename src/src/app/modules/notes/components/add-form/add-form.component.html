@@ -1,0 +1,14 @@
+<h1 class='text-center mb-0 mt-2 sidenav-header'>
+  {{'headers.noteAdd' | translate}}
+</h1>
+<form (ngSubmit)='submit()' [autocomplete]='null | autocomplete' [formGroup]='form' class='pa-3'>
+  <notes-form [form]='form' [reset$]='reset$'></notes-form>
+  <div class='two-buttons-container'>
+    <button [disabled]='form.invalid' color='primary' mat-raised-button type='submit'>
+      {{'form.actions.create' | translate}}
+    </button>
+    <button (click)='submit(false)' [disabled]='form.invalid' color='primary' mat-raised-button type='button'>
+      {{'form.actions.createAndContinue' | translate}}
+    </button>
+  </div>
+</form>

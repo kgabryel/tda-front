@@ -1,0 +1,44 @@
+<div [formGroup]='form'>
+  <form-text-input
+    [errors]='errors.name'
+    [field]='form.get(formNames.name)'
+    [maxLength]='maxNameLength'
+    label='form.label.name'
+    part='name'
+    prefix='tasks'>
+  </form-text-input>
+  <mat-form-field class='w-100'>
+    <mat-label>
+      {{'form.label.date' | translate}}
+    </mat-label>
+    <button (click)='clearDate()' mat-icon-button matPrefix type='button'>
+      <mat-icon>
+        clear
+      </mat-icon>
+    </button>
+    <input
+      (click)='picker.open()'
+      [formControlName]='formNames.date'
+      [matDatepicker]='picker'
+      class='c-pointer'
+      matInput
+      readonly />
+    <mat-datepicker-toggle [for]='picker' matSuffix></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <form-select
+    [formGroup]='form' [ngClass]="{'hidden' : mainTask$ | async}"
+    [values]='tasks$ | async'
+    class='w-100'
+    label='form.label.mainTask'>
+  </form-select>
+  <span *ngIf='form.get(formNames.search).invalid && form.get(formNames.search).touched'>
+    <form-errors-container
+      [errors]='errors.mainTask'
+      [input]='form.get(formNames.search)'
+      part='mainTask'
+      prefix='tasks'>
+    </form-errors-container>
+  </span>
+  <p-editor [formControl]='form.get(formNames.content)' [style]="{'height' : '320px'}"></p-editor>
+</div>

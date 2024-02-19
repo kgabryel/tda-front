@@ -1,0 +1,28 @@
+<h1 class='text-center mb-0 mt-2 sidenav-header'>
+  {{'headers.connectedCatalogs' | translate}}
+</h1>
+<div class='pa-3 pb-0'>
+  <mat-form-field *ngIf='(catalogs$ | async).length > 0 || name.value !== ""' class='w-100'>
+    <mat-label>
+      {{'form.label.search' | translate}}
+    </mat-label>
+    <input [autocomplete]='null | autocomplete' [formControl]='name' matInput type='text' />
+  </mat-form-field>
+  <mat-list>
+    <mat-list-item *ngFor='let catalog of (catalogs$ | async)'>
+      <simple-view-catalog (undo)='delete($event)' [catalog]='catalog' [delete]='editable$ | async' class='w-100'>
+      </simple-view-catalog>
+    </mat-list-item>
+  </mat-list>
+</div>
+<form
+  (ngSubmit)='submit()'
+  *ngIf='editable$ | async'
+  [autocomplete]='null | autocomplete'
+  [formGroup]='form'
+  class='pa-3 pt-0'>
+  <form-select [formGroup]='form' [values]='availableCatalogs$ | async' label='form.label.add'></form-select>
+  <button [disabled]='form.invalid' class='w-100' color='primary' mat-raised-button type='submit'>
+    {{'form.actions.add' | translate}}
+  </button>
+</form>

@@ -1,0 +1,91 @@
+<button [matMenuTriggerFor]='menu' class='menu-btn' mat-icon-button type='button'>
+  <mat-icon>
+    menu
+  </mat-icon>
+</button>
+<mat-menu #menu='matMenu'>
+  <button (click)='showCatalogs()' [disabled]='file.catalogs.length === 0' mat-menu-item type='button'>
+    <mat-icon>
+      folder
+    </mat-icon>
+    {{'tooltips.catalogs' | translate | pinnedTooltip : file.catalogs.length}}
+  </button>
+  <button (click)='showTasks()' [disabled]='file.tasks.length === 0' mat-menu-item type='button'>
+    <mat-icon>
+      rule
+    </mat-icon>
+    {{'tooltips.tasks' | translate | pinnedTooltip : file.tasks.length}}
+  </button>
+  <button (click)='edit()' mat-menu-item type='button'>
+    <mat-icon>
+      create
+    </mat-icon>
+    {{'tooltips.edit' | translate}}
+  </button>
+  <button (click)='download()' mat-menu-item type='button'>
+    <mat-icon>
+      download
+    </mat-icon>
+    {{'tooltips.download' | translate}}
+  </button>
+  <button (click)='delete()' mat-menu-item type='button'>
+    <mat-icon>
+      delete
+    </mat-icon>
+    {{'tooltips.delete' | translate}}
+  </button>
+</mat-menu>
+<button
+  (click)='showCatalogs()'
+  [disabled]='file.catalogs.length === 0'
+  class='big-btn'
+  color='primary'
+  mat-stroked-button
+  type='button'>
+  {{'tooltips.catalogs' | translate | pinnedTooltip : file.catalogs.length}}
+</button>
+<button
+  (click)='showTasks()'
+  [disabled]='file.tasks.length === 0'
+  class='big-btn mx-1'
+  color='primary'
+  mat-stroked-button
+  type='button'>
+  {{'tooltips.tasks' | translate | pinnedTooltip : file.tasks.length}}
+</button>
+<button (click)='edit()' class='big-btn mx-1' color='primary' mat-raised-button type='button'>
+  {{'tooltips.edit' | translate}}
+</button>
+<button (click)='download()' class='big-btn' color='primary' mat-raised-button type='button'>
+  {{'tooltips.download' | translate}}
+</button>
+<button (click)='delete()' class='big-btn mx-1' color='warn' mat-raised-button type='button'>
+  {{'tooltips.delete' | translate}}
+</button>
+<div class='small-buttons'>
+  <button (click)='showCatalogs()' [disabled]='file.catalogs.length === 0' mat-icon-button type='button'>
+    <mat-icon [matTooltip]="'tooltips.catalogs' | translate | pinnedTooltip : file.catalogs.length">
+      bookmark
+    </mat-icon>
+  </button>
+  <button (click)='showTasks()' [disabled]='file.tasks.length === 0' mat-icon-button type='button'>
+    <mat-icon [matTooltip]="'tooltips.tasks' | translate | pinnedTooltip : file.tasks.length">
+      rule
+    </mat-icon>
+  </button>
+  <button (click)='edit()' [matTooltip]="'tooltips.edit' | translate" mat-icon-button type='button'>
+    <mat-icon>
+      create
+    </mat-icon>
+  </button>
+  <button (click)='download()' [matTooltip]="'tooltips.download' | translate" mat-icon-button type='button'>
+    <mat-icon>
+      download
+    </mat-icon>
+  </button>
+  <button (click)='delete()' [matTooltip]="'tooltips.delete' | translate" mat-icon-button type='button'>
+    <mat-icon>
+      delete
+    </mat-icon>
+  </button>
+</div>

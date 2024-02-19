@@ -1,0 +1,53 @@
+<form (ngSubmit)='submit()' [autocomplete]='null | autocomplete' [formGroup]='form' class='d-flex align-center'>
+  <mat-form-field class='w-50 pr-1 pl-1'>
+    <mat-label>
+      {{'form.label.date' | translate}}
+    </mat-label>
+    <input
+      (click)='picker.open();'
+      [formControlName]='formNames.notificationTime'
+      [ngxMatDatetimePicker]='picker'
+      matInput
+      readonly />
+    <button
+      (click)='picker.open(); $event.stopPropagation();'
+      mat-icon-button
+      matSuffix
+      onclick='this.blur();'
+      type='button'>
+      <mat-icon>
+        today
+      </mat-icon>
+    </button>
+    <ngx-mat-datetime-picker #picker [showSpinners]='true'></ngx-mat-datetime-picker>
+  </mat-form-field>
+  <form-multi-select
+    [formGroup]='form.get(formNames.typesGroup)'
+    [hideButtons]='true'
+    [reset]='reset$'
+    [values]='types$ | async'
+    class='w-50 pl-1'
+    label='form.label.notificationTypes'>
+  </form-multi-select>
+  <button [disabled]='form.invalid' mat-icon-button type='submit'>
+    <mat-icon>
+      add
+    </mat-icon>
+  </button>
+</form>
+<span *ngIf='form.get(formNames.notificationTime).invalid && form.get(formNames.notificationTime).touched'>
+  <form-errors-container
+    [errors]='errors.notificationTime'
+    [input]='form.get(formNames.notificationTime)'
+    part='notificationTime'
+    prefix='alarms'>
+  </form-errors-container>
+</span>
+<span *ngIf='form.get(formNames.typesGroup).get(formNames.search).invalid && form.get(formNames.typesGroup).get(formNames.search).touched'>
+  <form-errors-container
+    [errors]='errors.types'
+    [input]='form.get(formNames.typesGroup).get(formNames.search)'
+    part='types'
+    prefix='alarms'>
+  </form-errors-container>
+</span>

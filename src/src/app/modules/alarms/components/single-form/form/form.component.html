@@ -1,0 +1,22 @@
+<form (ngSubmit)='submit(true)' [autocomplete]='null | autocomplete' [formGroup]='form'>
+  <div *ngIf='smallForm$ | async' class='mb-2'>
+    <alarms-single-small-form [form]='form' [reset$]='reset$'></alarms-single-small-form>
+  </div>
+  <div *ngIf='!(smallForm$ | async)' class='d-flex justify-center mb-2'>
+    <alarms-single-big-form [form]='form' [reset$]='reset$'></alarms-single-big-form>
+  </div>
+  <div class='d-flex justify-center mb-2'>
+    <button [disabled]='form.invalid' class='mr-1' color='primary' mat-raised-button type='submit'>
+      {{'form.actions.create' | translate}}
+    </button>
+    <button
+      (click)='submit(false)'
+      [disabled]='form.invalid'
+      class='mr-l'
+      color='primary'
+      mat-raised-button
+      type='button'>
+      {{'form.actions.createAndContinue' | translate}}
+    </button>
+  </div>
+</form>

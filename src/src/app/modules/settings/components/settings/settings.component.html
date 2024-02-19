@@ -1,0 +1,46 @@
+<div class='pt-2'>
+  <mat-form-field class='w-100'>
+    <mat-label>
+      {{'form.label.viewMode' | translate}}
+    </mat-label>
+    <mat-select (selectionChange)='changeMode($event)' [formControl]='modeField'>
+      <mat-option *ngFor='let value of modeOptions' [value]='value'>
+        {{'form.options.mode' + value | translate}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class='w-100'>
+    <mat-label>
+      {{'form.label.notificationLanguage' | translate}}
+    </mat-label>
+    <mat-select (selectionChange)='changeNotificationLanguage($event)' [formControl]='notificationLanguageField'>
+      <mat-option *ngFor='let value of languageOptions' [value]='value'>
+        {{'form.options.language' + value | translate}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class='w-100'>
+    <mat-label>
+      {{'form.label.defaultPagination' | translate}}
+    </mat-label>
+    <mat-select (selectionChange)='changeDefaultPagination($event)' [formControl]='paginationField'>
+      <mat-option *ngFor='let value of pageSizeOptions' [value]='value'>
+        {{value}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div *ngFor='let element of availableSettings' class='w-100 pa-2'>
+    <mat-slide-toggle
+      (change)='changeSettings(element, $event)'
+      [checked]='this.settings$[toCamelCase(element)] | async'
+      [formControl]='settingsFields.get(toCamelCase(element))'
+      color='primary'>
+      {{'form.label.' + toCamelCase(element) | translate}}
+    </mat-slide-toggle>
+  </div>
+  <div *ngIf='(notificationEnabled$ | async) === false' class='d-flex justify-flex-end'>
+    <button (click)='subscribePushNotification()' class='mt-2' color='primary' mat-raised-button type='button'>
+      {{'settings.buttons.enableNotifications' | translate}}
+    </button>
+  </div>
+</div>

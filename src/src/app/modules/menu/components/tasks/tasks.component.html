@@ -1,0 +1,24 @@
+<div *ngIf='(tasks | async)?.length > 0'>
+  <mat-divider></mat-divider>
+  <p class='d-flex align-center text-primary text-bold mt-3'>
+    <span [ngClass]="{'small' : limit < (length$ | async)}" class='d-block'>
+      {{'headers.' + headerName | translate}}
+    </span>
+    <button
+      (click)='toggle()'
+      *ngIf='limit < (length$ | async)'
+      [ngClass]="{'active' : expanded}"
+      mat-icon-button
+      type='button'>
+      <mat-icon>
+        double_arrow
+      </mat-icon>
+    </button>
+  </p>
+  <menu-task *ngFor='let task of (tasks | async).slice(0,limit)' [task]='task'></menu-task>
+  <mat-accordion>
+    <mat-expansion-panel [expanded]='expanded' hideToggle>
+      <menu-task *ngFor='let task of (tasks | async).slice(limit)' [task]='task'></menu-task>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

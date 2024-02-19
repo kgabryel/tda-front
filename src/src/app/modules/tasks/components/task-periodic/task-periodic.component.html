@@ -1,0 +1,126 @@
+<div class='big-container mb-3 mt-3'>
+  <mat-card [ngClass]="{'bg-checked' : !task.active}" class='ma-1'>
+    <mat-card-header class='d-flex justify-space-between flex-row-wrap'>
+      <div class='header d-flex w-100 align-center'>
+        <ng-container *ngIf='!task.active'>
+          <button
+            (click)='activate()'
+            [ngClass]="{'small-button' : small$ | async}"
+            class='mr-1'
+            mat-raised-button
+            type='button'>
+            <mat-icon>
+              close
+            </mat-icon>
+            <span [ngClass]="{'hidden' : small$ | async}">
+              {{'tasks.taskInactive' | translate}}
+            </span>
+          </button>
+        </ng-container>
+        <ng-container *ngIf='task.active'>
+          <button
+            (click)='deactivate()'
+            [ngClass]="{'small-button' : small$ | async}"
+            class='bg-green mr-1'
+            mat-raised-button
+            type='button'>
+            <mat-icon>
+              done
+            </mat-icon>
+            <span [ngClass]="{'hidden' : small$ | async}">
+              {{'tasks.taskActive' | translate}}
+            </span>
+          </button>
+        </ng-container>
+        <shared-name
+          (valueChanged)='saveName($event)'
+          [maxLength]='maxNameLength'
+          [name]='task.name'
+          class='name single-line mb-0'>
+        </shared-name>
+        <button
+          *ngIf='previewAvailable'
+          [routerLink]='[task.id | taskUrl]'
+          mat-icon-button
+          onclick='this.blur();'
+          type='button'>
+          <mat-icon [matTooltip]="'tooltips.goTo' | translate">
+            visibility
+          </mat-icon>
+        </button>
+        <div>
+          <button
+            *ngIf='task.alarm !== null'
+            [ngClass]="{'small-button' : small$ | async}"
+            [routerLink]='[task.alarm | alarmUrl]'
+            class='bg-yellow ml-1'
+            mat-raised-button
+            type='button'>
+            <mat-icon>
+              alarm
+            </mat-icon>
+            <span [ngClass]="{'hidden' : small$ | async}">
+             {{'tasks.alarm' | translate}}
+            </span>
+          </button>
+        </div>
+      </div>
+      <div class='w-100 d-flex align-center mt-2'>
+        <small class='ml-1 mr-1 w-100 single-line'>
+          <span>
+            {{'shared.from' | translate}}{{task.start | date : 'dd-MM-y'}}
+          </span>
+          <ng-container *ngIf='task.stop !== null'>
+            {{'shared.to' | translate}} {{task.stop | date : 'dd-MM-y'}}
+          </ng-container>
+          <span>
+            ({{task.interval}} {{'shared.' + task.intervalType | translate}})
+          </span>
+        </small>
+        <mat-slide-toggle (change)='refreshTasks(getEmptySearch())' [(ngModel)]='hideDone' color='primary'>
+          {{'tasks.hideDone' | translate}}
+        </mat-slide-toggle>
+      </div>
+      <tasks-actions
+        (delete)='deleteTask()'
+        (showBookmarks)='openPinnedSidenav(3)'
+        (showCatalogs)='openPinnedSidenav(1)'
+        (showContent)='changeSection(1)'
+        (showFiles)='openPinnedSidenav(4)'
+        (showNotes)='openPinnedSidenav(2)'
+        (showTasks)='changeSection(0)'
+        (showVideos)='openPinnedSidenav(5)'
+        [activeSection]='step'
+        [task]='task'
+        class='w-100'>
+      </tasks-actions>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-accordion>
+        <mat-expansion-panel
+          [expanded]='step === 0'
+          [ngClass]="{'bg-checked' : !task.active}"
+          class='section mb-0'
+          hideToggle>
+          <span *ngIf='step === 0'>
+            <tasks-tasks-filter (search)='refreshTasks($event)'></tasks-tasks-filter>
+            <tasks-tasks [tasks]='tasks$ | async'></tasks-tasks>
+          </span>
+        </mat-expansion-panel>
+        <mat-expansion-panel
+          [expanded]='step === 1'
+          [ngClass]="{'bg-checked' : !task.active}"
+          class='section mb-0'
+          hideToggle>
+          <div class='pa-1'>
+            <shared-content
+              (valueChanged)='updateContent($event)'
+              [content]='task.content'
+              [edit]='task.content | emptyString'>
+            </shared-content>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-card-content>
+  </mat-card>
+</div>

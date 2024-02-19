@@ -1,0 +1,14 @@
+form > * {
+  display: block;
+  width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+  form {
+    display: flex;
+    align-items: center;
+  }
+  form > * {
+    width: 33%;
+  }
+}

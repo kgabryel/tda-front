@@ -1,0 +1,21 @@
+<alarms-sidenav>
+  <shared-loader *ngIf='search$ | async'></shared-loader>
+  <div *ngIf='(search$ | async) === false'>
+    <shared-pagination
+      *ngIf='(alarms$ | async)?.length > 5'
+      [config$]='config$'
+      [limitField]='limitField'
+      [pageField]='pageField'>
+    </shared-pagination>
+    <div *ngFor='let alarm of (alarms$ | async) | paginate : (config$ | async)'>
+      <alarms-alarm-single *ngIf='alarm.periodic === false' [alarm]='alarm'></alarms-alarm-single>
+      <alarms-alarm-periodic *ngIf='alarm.periodic === true' [alarm]='alarm'></alarms-alarm-periodic>
+    </div>
+    <shared-pagination
+      *ngIf='(alarms$ | async)?.length > 5'
+      [config$]='config$'
+      [limitField]='limitField'
+      [pageField]='pageField'>
+    </shared-pagination>
+  </div>
+</alarms-sidenav>

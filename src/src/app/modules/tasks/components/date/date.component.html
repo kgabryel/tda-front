@@ -1,0 +1,30 @@
+<div *ngIf='edit$ | async'>
+  <button (click)='edit$.next(false)' mat-icon-button onclick='this.blur();' type='button'>
+    <mat-icon>
+      clear
+    </mat-icon>
+  </button>
+  <mat-form-field>
+    <mat-label>
+      {{'form.label.date' | translate}}
+    </mat-label>
+    <input (click)='picker.open()' [(ngModel)]='date' [matDatepicker]='picker' class='c-pointer' matInput readonly />
+    <mat-datepicker-toggle [for]='picker' matSuffix></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <button (click)='save()' [disabled]='date === null' mat-icon-button onclick='this.blur();' type='button'>
+    <mat-icon>
+      save
+    </mat-icon>
+  </button>
+</div>
+<div *ngIf='!(edit$ | async)' class='d-flex'>
+  <p (dblclick)='editDate()' *ngIf='date !== null ' class='mb-0 ml-1 c-text border-radius-5 pa-2 basic-bg-hover'>
+    {{date | date : 'dd-MM-y'}}
+  </p>
+  <button (click)='editDate()' *ngIf='date === null' mat-icon-button onclick='this.blur();' type='button'>
+    <mat-icon [matTooltip]="'tooltips.addDate' | translate">
+      calendar_today
+    </mat-icon>
+  </button>
+</div>

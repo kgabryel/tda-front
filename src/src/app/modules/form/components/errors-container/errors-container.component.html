@@ -1,0 +1,4 @@
+<span *ngFor='let error of errors'>
+  <form-error-message *ngIf='input?.hasError(error)' [message]="prefix + '.form.errors.' + part + '.' + error">
+  </form-error-message>
+</span>

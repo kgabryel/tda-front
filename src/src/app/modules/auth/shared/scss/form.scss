@@ -1,0 +1,16 @@
+@import 'colors';
+
+form {
+  background-color: white;
+  border: 3px solid $color-primary;
+  border-radius: 10px;
+}
+
+.language-switch {
+  background-color: $color-primary;
+}
+
+.form-container {
+  margin: 5px 30px 30px 30px;
+  max-width: 500px;
+}

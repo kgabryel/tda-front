@@ -1,0 +1,5 @@
+<button (click)='openModal()' [ngClass]="{'filtered' : filtered$ | async}" class='ml-2' mat-icon-button type='button'>
+  <mat-icon [matTooltip]="'tooltips.search' | translate">
+    search
+  </mat-icon>
+</button>

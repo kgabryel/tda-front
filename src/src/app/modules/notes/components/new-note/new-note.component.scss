@@ -1,0 +1,33 @@
+.mat-card-header {
+
+  height: 51px;
+}
+
+.mat-card-content {
+  height: calc(100% - 51px);
+}
+
+.mat-card {
+  height: calc(100% - 10px);
+}
+
+@media only screen and (max-width: 599px) {
+  .mat-card {
+    max-height: calc(100% - 10px);
+  }
+}
+
+.mat-card {
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+}
+
+.mat-card-header {
+  filter: brightness(0.7);
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+:host ::ng-deep mat-card .mat-card-header-text {
+  display: none;
+}

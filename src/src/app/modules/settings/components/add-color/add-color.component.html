@@ -1,0 +1,25 @@
+<form (ngSubmit)='submit()' [autocomplete]='null | autocomplete' [formGroup]='form'>
+  <div class='pa-2'>
+    <form-text-input
+      [errors]='errors.name'
+      [field]='form.get(formNames.name)'
+      [maxLength]='maxNameLength'
+      label='form.label.name'
+      part='name'
+      prefix='colors'>
+    </form-text-input>
+  </div>
+  <div class='pa-2'>
+    <form-color-input
+      [errors]='errors.name'
+      [field]='form.get(formNames.color)'
+      [simple]='true'
+      label='form.label.color'
+      part='color'
+      prefix='colors'>
+    </form-color-input>
+  </div>
+  <button [disabled]='form.invalid' class='ma-2' color='primary' mat-raised-button type='submit'>
+    {{'form.actions.add' | translate}}
+  </button>
+</form>

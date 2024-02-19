@@ -1,0 +1,42 @@
+<h1 class='mt-1 sidenav-header'>
+  <span *ngIf='(state$ | async) === 1'>
+    {{'headers.emailConfirmed' | translate}}
+  </span>
+  <span *ngIf='(state$ | async) === 2'>
+    {{'headers.emailUnconfirmed' | translate}}
+  </span>
+  <span *ngIf='(state$ | async) === 3'>
+    {{'headers.noEmail' | translate}}
+  </span>
+</h1>
+<form>
+  <button (click)='stopEdit()' *ngIf='edit$ | async' class='ma-2' mat-raised-button type='button'>
+    {{'form.actions.cancel' | translate}}
+  </button>
+  <button (click)='startEdit()' *ngIf='!(edit$ | async)' class='ma-2' mat-raised-button type='button'>
+    {{'form.actions.startEdit' | translate}}
+  </button>
+  <div class='pa-2'>
+    <mat-form-field class='w-100'>
+      <mat-label>
+        {{'form.label.email' | translate}}
+      </mat-label>
+      <input [formControl]='emailField' matInput type='email' />
+    </mat-form-field>
+  </div>
+  <button
+    (click)='deleteEmail()'
+    *ngIf='!(edit$ | async) && (state$ | async) !== 3'
+    class='ma-2'
+    color='warn'
+    mat-raised-button
+    type='button'>
+    {{'form.actions.deleteEmail' | translate}}
+  </button>
+  <button (click)='changeEmail()' *ngIf='edit$ | async' class='ma-2' color='primary' mat-raised-button type='button'>
+    {{'form.actions.changeEmail' | translate}}
+  </button>
+</form>
+<span (click)='sendCode()' *ngIf='(state$ | async) === 2' class='text-link c-pointer'>
+  {{'form.actions.sendCode' | translate}}
+</span>

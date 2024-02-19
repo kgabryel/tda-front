@@ -1,0 +1,133 @@
+<div class='big-container mb-3 mt-3'>
+  <mat-card [ngClass]="{'bg-checked' : !alarm.active}" class='ma-1'>
+    <mat-card-header class='flex-row-wrap d-flex justify-space-between'>
+      <div class='w-100 d-flex align-center header h-50px mb-1'>
+        <ng-container *ngIf='!alarm.active'>
+          <button
+            (click)='activate()'
+            [ngClass]="{'small-button' : small$ | async}"
+            class='mr-1'
+            mat-raised-button
+            type='button'>
+            <mat-icon>
+              close
+            </mat-icon>
+            <span [ngClass]="{'hidden' : small$ | async}">
+              {{'alarms.alarmInactive' | translate}}
+            </span>
+          </button>
+        </ng-container>
+        <ng-container *ngIf='alarm.active'>
+          <button
+            (click)='deactivate()'
+            [ngClass]="{'small-button' : small$ | async}"
+            class='bg-green mr-1'
+            mat-raised-button
+            type='button'>
+            <mat-icon>
+              done
+            </mat-icon>
+            <span [ngClass]="{'hidden' : small$ | async}">
+              {{'alarms.alarmActive' | translate}}
+            </span>
+          </button>
+        </ng-container>
+        <shared-name
+          (valueChanged)='saveName($event)'
+          [maxLength]='maxNameLength'
+          [name]='alarm.name'
+          class='name mb-0 single-line'>
+        </shared-name>
+        <button
+          *ngIf='previewAvailable'
+          [routerLink]='[alarm.id | alarmUrl]'
+          mat-icon-button
+          onclick='this.blur();'
+          type='button'>
+          <mat-icon [matTooltip]="'tooltips.goTo' | translate">
+            visibility
+          </mat-icon>
+        </button>
+        <div>
+          <button
+            *ngIf='alarm.task !== null '
+            [ngClass]="{'small-button' : small$ | async}"
+            [routerLink]='[alarm.task | taskUrl]'
+            class='bg-yellow ml-1'
+            mat-raised-button
+            type='button'>
+            <mat-icon [matTooltip]='"tooltips.goTo" | translate'>
+              task
+            </mat-icon>
+            <span [ngClass]="{'hidden' : small$ | async}">
+              {{'alarms.task' | translate}}
+            </span>
+          </button>
+        </div>
+      </div>
+      <div class='w-100 d-flex align-center mt-2'>
+        <small class='mr-1 w-100 single-line'>
+          <span>
+            {{'shared.from' | translate}}{{alarm.start | date : 'dd-MM-y'}}
+          </span>
+          <ng-container *ngIf='alarm.stop !== null'>
+            {{'shared.to' | translate}}{{alarm.stop | date : 'dd-MM-y'}}
+          </ng-container>
+          <span>
+            ({{alarm.interval}} {{'shared.' + alarm.intervalType | translate}})
+          </span>
+        </small>
+        <mat-slide-toggle (change)='refreshAlarms(getEmptySearch())' [(ngModel)]='hideInactive' color='primary'>
+          {{'alarms.hideInactive' | translate}}
+        </mat-slide-toggle>
+      </div>
+      <alarms-actions
+        (delete)='deleteAlarm()'
+        (showAlarms)='changeSection(0)'
+        (showCatalogs)='openCatalogsSidenav()'
+        (showContent)='changeSection(2)'
+        (showNotifications)='changeSection(1)'
+        [activeSection]='step'
+        [alarm]='alarm'
+        class='w-100'>
+      </alarms-actions>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-accordion>
+        <mat-expansion-panel
+          [expanded]='step === 0'
+          [ngClass]="{'bg-checked' : !alarm.active}"
+          class='section mb-0'
+          hideToggle>
+          <alarms-alarms-filter (search)='refreshAlarms($event)'></alarms-alarms-filter>
+          <alarms-alarms [alarm]='alarm' [alarms]='alarms$ | async'></alarms-alarms>
+        </mat-expansion-panel>
+        <mat-expansion-panel
+          [expanded]='step === 1'
+          [ngClass]="{'bg-checked' : alarm.checked}"
+          class='section mb-0'
+          hideToggle>
+          <alarms-notifications-groups
+            [alarm]='alarm'
+            [disableEmail]='disableEmail$ | async'
+            [notifications]='alarm.notificationsGroups'>
+          </alarms-notifications-groups>
+          <alarms-add-notification-group [alarmId]='alarm.id'></alarms-add-notification-group>
+        </mat-expansion-panel>
+        <mat-expansion-panel
+          [expanded]='step === 2'
+          [ngClass]="{'bg-checked' : !alarm.active}"
+          class='section mb-0'
+          hideToggle>
+          <div class='pa-1'>
+            <shared-content
+              (valueChanged)='updateContent($event)'
+              [content]='alarm.content'
+              [edit]='alarm.content | emptyString'>
+            </shared-content>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-card-content>
+  </mat-card>
+</div>

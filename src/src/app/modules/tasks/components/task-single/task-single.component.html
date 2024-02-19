@@ -1,0 +1,148 @@
+<div *ngIf='status !== undefined' class='big-container mb-3 mt-3'>
+  <mat-card class='ma-1'>
+    <mat-card-header class='d-flex justify-space-between flex-row-wrap'>
+      <div class='header mb-0 w-100 d-flex align-center h-50px '>
+        <button
+          (click)='openStatusSheet()'
+          [matTooltip]="'tooltips.changeStatus' | translate"
+          [ngClass]="{'small-button' : smallButtons$ | async}"
+          [style.backgroundColor]='status.color'
+          class='text-white mr-1'
+          mat-raised-button
+          type='button'>
+          <mat-icon>
+            {{status.icon}}
+          </mat-icon>
+          <span [ngClass]="{'hidden' : smallButtons$ | async}">
+           {{'taskStatuses.' + status.name | translate}}
+          </span>
+        </button>
+        <div [ngClass]="{'hidden' : small$ | async}" class='name single-line'>
+          <shared-name
+            (valueChanged)='saveName($event)'
+            *ngIf='task.group === null'
+            [maxLength]='maxNameLength'
+            [name]='task.name'>
+          </shared-name>
+          <p *ngIf='task.group !== null' class='mb-0'>
+            {{task.name}}
+          </p>
+        </div>
+        <div class='details ml-auto d-flex align-center'>
+          <button
+            (click)='openMainTaskSheet()'
+            *ngIf='task.subtasks.length === 0 && task.group === null'
+            mat-icon-button
+            onclick='this.blur();'
+            type='button'>
+            <mat-icon [matTooltip]="(mainTask$.getValue() === null ? 'tooltips.connectMainTask' : 'tooltips.changeMainTask') | translate">
+              task
+            </mat-icon>
+          </button>
+          <button
+            *ngIf='previewAvailable'
+            [routerLink]='[task.id | taskUrl]'
+            mat-icon-button
+            onclick='this.blur();'
+            type='button'>
+            <mat-icon [matTooltip]="'tooltips.goTo' | translate">
+              visibility
+            </mat-icon>
+          </button>
+          <mat-slide-toggle
+            (change)='refreshTasks()'
+            *ngIf='(subtasks$ | async)?.length > 0'
+            [(ngModel)]='hideDone'
+            [ngClass]="{'hidden' : (small$ | async)}"
+            color='primary'>
+            {{'tasks.hideDone' | translate}}
+          </mat-slide-toggle>
+          <tasks-date
+            (valueChanged)='updateDate($event)'
+            *ngIf='task.group === null'
+            [taskDate]='task.date'>
+          </tasks-date>
+          <p *ngIf='task.group !== null && task.date !== null' class='mb-0'>
+            {{task.date | date : 'dd-MM-y'}}
+          </p>
+          <tasks-alarm-single (startEdit)='openAlarmSheet()' [alarmId]='task.alarm' [editable]='task.group === null'>
+          </tasks-alarm-single>
+        </div>
+      </div>
+      <div [ngClass]="{'hidden' : !(small$ | async)}" class='name mt-1 ml-1 mb-1 w-100 d-flex align-center single-line'>
+        <shared-name
+          (valueChanged)='saveName($event)'
+          *ngIf='task.group === null'
+          [maxLength]='maxNameLength'
+          [name]='task.name'
+          class='w-100 mr-1'>
+        </shared-name>
+        <p *ngIf='task.group !== null' class='mb-0 w-100 mr-1'>
+          {{task.name}}
+        </p>
+        <mat-slide-toggle
+          (change)='refreshTasks()'
+          *ngIf='(subtasks$ | async)?.length > 0'
+          [(ngModel)]='hideDone'
+          color='primary'>
+          {{'tasks.hideDone' | translate}}
+        </mat-slide-toggle>
+      </div>
+      <div *ngIf='task.group !== null'>
+        <p class='mb-0 ml-1'>{{'shared.belongsTo' | translate}}: <span
+          [routerLink]='[task.group | taskUrl]'
+          class='c-pointer text-bold text-link'>{{(getGroup() | async).name}}</span></p>
+      </div>
+      <div *ngIf='task.parentId !== null'>
+        <p class='mb-0 ml-1'>
+          <span>
+            {{'shared.partOf' | translate}}:
+          </span>
+          <span [routerLink]='[task.parentId | taskUrl]' class='c-pointer text-bold text-link'>
+            {{(getParent() | async).name}}
+          </span>
+        </p>
+      </div>
+      <div [ngClass]="{'hidden' : (subtasks$ | async)?.length == 0}" class='d-flex align-center w-100'>
+        <mat-progress-bar [value]='progress$ | async' mode='determinate'></mat-progress-bar>
+        <p *ngIf='(subtasks$ | async)?.length > 0' class='ml-1 mr-1 mb-0'>
+          {{(doneTasks$ | async)?.length}}/{{(subtasks$ | async)?.length}}
+        </p>
+      </div>
+      <tasks-actions
+        (delete)='deleteTask()'
+        (showBookmarks)='openPinnedSidenav(3)'
+        (showCatalogs)='openPinnedSidenav(1)'
+        (showContent)='changeSection(1)'
+        (showFiles)='openPinnedSidenav(4)'
+        (showNotes)='openPinnedSidenav(2)'
+        (showTasks)='changeSection(0)'
+        (showVideos)='openPinnedSidenav(5)'
+        [activeSection]='step'
+        [task]='task'
+        class='w-100'>
+      </tasks-actions>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-accordion>
+        <mat-expansion-panel [expanded]='step === 0' class='section mb-0' hideToggle>
+          <span *ngIf='step === 0'>
+            <tasks-tasks [tasks]='filteredSubtasks$ | async'></tasks-tasks>
+          </span>
+        </mat-expansion-panel>
+        <mat-expansion-panel [expanded]='step === 1' class='section mb-0' hideToggle>
+          <div class='pa-1'>
+            <shared-content
+              (valueChanged)='updateContent($event)'
+              *ngIf='task.group === null'
+              [content]='task.content'
+              [edit]='task.content | emptyString'>
+            </shared-content>
+            <div *ngIf='task.group !== null' [innerHTML]='task.content' class='pa-1'></div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <tasks-add-subtask *ngIf='task.parentId === null && task.group === null' [taskId]='task.id'></tasks-add-subtask>
+    </mat-card-content>
+  </mat-card>
+</div>

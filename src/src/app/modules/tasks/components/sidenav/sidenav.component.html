@@ -1,0 +1,10 @@
+<mat-drawer-container [ngClass]="{'small' : small$ | async}" autosize hasBackdrop='true'>
+  <mat-drawer (closed)='close()' [autoFocus]='false' [opened]='(showed$ | async).open' mode='over' position='start'>
+    <tasks-catalogs *ngIf='(showed$ | async).type === 1' [taskId]='(showed$ | async).taskId'></tasks-catalogs>
+    <tasks-notes *ngIf='(showed$ | async).type === 2' [taskId]='(showed$ | async).taskId'></tasks-notes>
+    <tasks-bookmarks *ngIf='(showed$ | async).type === 3' [taskId]='(showed$ | async).taskId'></tasks-bookmarks>
+    <tasks-files *ngIf='(showed$ | async).type === 4' [taskId]='(showed$ | async).taskId'></tasks-files>
+    <tasks-videos *ngIf='(showed$ | async).type === 5' [taskId]='(showed$ | async).taskId'></tasks-videos>
+  </mat-drawer>
+  <ng-content></ng-content>
+</mat-drawer-container>

@@ -1,0 +1,51 @@
+<mat-form-field [formGroup]='formGroup' class='w-100'>
+  <mat-label>
+    {{label | translate}}
+  </mat-label>
+  <span *ngIf='selectedValues.length > 0 && !hideButtons' class='mr-1' matPrefix>
+    ({{selectedValues.length}})
+  </span>
+  <span *ngIf='selectedValues.length > 0 && hideButtons' class='mr-1' matPrefix>
+    [<span *ngFor='let option of selectedValues; let isLast = last'>{{option.display}}
+    <span *ngIf='!isLast'>, </span></span>]
+  </span>
+  <input
+    (click)='openPanel()'
+    (keyup.enter)='selected()'
+    [formControlName]='"search"'
+    [matAutocomplete]='auto'
+    [placeholder]="'form.searchPlaceholder' | translate"
+    matInput />
+  <mat-autocomplete #auto='matAutocomplete' (optionSelected)='itemSelected($event)'>
+    <mat-option
+      *ngFor='let item of filteredValues'
+      [ngClass]="{'selected' : isSelected(item, false), 'selected-dark' : isSelected(item, true)}"
+      [value]='item'>
+      <mat-checkbox [checked]='isSelected(item)' color='primary' disabled></mat-checkbox>
+      <ng-container *ngIf='translateNames'>
+        {{item.display | translate}}
+      </ng-container>
+      <ng-container *ngIf='!translateNames'>
+        {{item.display}}
+      </ng-container>
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>
+<div *ngIf='!hideButtons' class='buttons mb-1 d-flex'>
+  <div *ngFor='let option of selectedValues' class='multiple-buttons-containers'>
+    <button class='text-button single-line' color='warn' mat-raised-button type='button'>
+      <ng-container *ngIf='translateNames'>
+        {{option.display | translate}}
+      </ng-container>
+      <ng-container *ngIf='!translateNames'>
+        {{option.display}}
+      </ng-container>
+    </button>
+    <button (click)='remove(option)' class='icon-button' color='warn' mat-raised-button type='button'>
+      <mat-icon>
+        close
+      </mat-icon>
+      <span></span>
+    </button>
+  </div>
+</div>

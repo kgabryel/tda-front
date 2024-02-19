@@ -1,0 +1,42 @@
+<form (ngSubmit)='submitForm()' [formGroup]='form' class='ma-1 pa-0'>
+  <div class='language-switch d-flex pr-2'>
+    <shared-lang class='ml-auto'></shared-lang>
+  </div>
+  <div class='form-container'>
+    <mat-form-field class='w-100'>
+      <mat-label>
+        {{'form.label.email' | translate}}
+      </mat-label>
+      <input [formControlName]='formNames.email' matInput type='email' />
+    </mat-form-field>
+    <span *ngIf='form.get(formNames.email).invalid && form.get(formNames.email).touched'>
+      <form-errors-container
+        [errors]='errors.email'
+        [input]='form.get(formNames.email)'
+        part='email'
+        prefix='auth'>
+      </form-errors-container>
+    </span>
+    <mat-form-field class='w-100'>
+      <mat-label>
+        {{'form.label.password' | translate}}
+      </mat-label>
+      <input [formControlName]='formNames.password' matInput type='password' />
+    </mat-form-field>
+    <span *ngIf='form.get(formNames.password).invalid && form.get(formNames.password).touched'>
+      <form-errors-container
+        [errors]='errors.password'
+        [input]='form.get(formNames.password)'
+        part='password'
+        prefix='auth'>
+      </form-errors-container>
+    </span>
+    <form-error-message *ngIf="(errorMessage$ | async) !== ''" [message]='errorMessage$ | async'></form-error-message>
+    <button class='w-100 mt-1' color='primary' mat-raised-button type='submit'>
+      {{'form.actions.register' | translate}}
+    </button>
+    <button [routerLink]='[loginPath]' class='w-100 mt-1' color='primary' mat-stroked-button type='button'>
+      {{'routes.toLogin' | translate}}
+    </button>
+  </div>
+</form>

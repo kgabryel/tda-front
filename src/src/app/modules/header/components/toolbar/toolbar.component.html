@@ -1,0 +1,23 @@
+<mat-toolbar color='primary'>
+  <mat-toolbar-row class='w-100 d-flex justify-space-between'>
+    <header-menu class='h-100'></header-menu>
+    <div [ngClass]="{'hidden' : small$ | async}" class='d-flex align-center'>
+      <header-tasks (isEmpty)='checkTasks($event)'></header-tasks>
+      <header-notification (isEmpty)='checkAlarms($event)'></header-notification>
+      <header-search-button *ngIf='searchAvailable'></header-search-button>
+    </div>
+    <div class='h-100 d-flex align-center'>
+      <shared-lang></shared-lang>
+      <header-logout></header-logout>
+    </div>
+  </mat-toolbar-row>
+  <mat-toolbar-row
+    [ngClass]="{'hidden' : !(small$ | async) || (emptyTasks && emptyAlarms)}"
+    class='w-100 d-flex justify-center'>
+    <div class='h-100 d-flex align-center'>
+      <header-tasks></header-tasks>
+      <header-notification></header-notification>
+      <header-search-button *ngIf='searchAvailable'></header-search-button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

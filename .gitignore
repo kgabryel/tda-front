@@ -1,0 +1,5 @@
+/.idea
+/docker/logs
+/src/node_modules
+/src/src/environments/environment.prod.ts
+/src/src/environments/environment.ts

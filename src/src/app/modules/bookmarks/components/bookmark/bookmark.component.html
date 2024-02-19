@@ -1,0 +1,12 @@
+<a [href]='bookmark.href' class='d-block w-100 h-100 text-decoration-none' target='_blank'>
+  <mat-card [style.background-color]='bookmark.backgroundColor' class='w-100 d-g ma-1 d-inline-block'>
+    <div [style.background-color]='bookmark.backgroundColor' class='grid-center'>
+      <button *ngIf='bookmark.icon !== null' color='basic' mat-fab type='button'>
+        <img [src]='bookmark.icon' />
+      </button>
+    </div>
+    <p [style.color]='bookmark.textColor' class='single-line text-center'>
+      {{bookmark.name}}
+    </p>
+  </mat-card>
+</a>

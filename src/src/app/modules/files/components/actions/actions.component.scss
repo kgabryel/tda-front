@@ -1,0 +1,33 @@
+.big-btn {
+  display: none;
+  width: calc(20% - 10px);
+  margin: 0 5px 0 5px;
+}
+
+.small-buttons {
+  display: none;
+}
+
+@media only screen and (max-width: 640px) {
+  .big-btn {
+    display: inline-block;
+  }
+
+  .menu-btn {
+    display: none;
+  }
+
+  .small-buttons {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  .big-btn {
+    display: none;
+  }
+  .small-buttons {
+    display: flex;
+    justify-content: space-evenly;
+  }
+}

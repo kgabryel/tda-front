@@ -1,0 +1,8 @@
+<div class='d-flex justify-center'>
+  <alarms-periodic-main-part [form]='form.get(formNames.mainGroup)' [reset$]='reset$' class='pa-1'>
+  </alarms-periodic-main-part>
+  <alarms-periodic-content-part [form]='form.get(formNames.contentGroup)' class='pa-1'>
+  </alarms-periodic-content-part>
+  <shared-periodic-notifications [parentForm]='form' [reset$]='reset$' class='pa-1'>
+  </shared-periodic-notifications>
+</div>

@@ -1,0 +1,97 @@
+<div class='big-container pa-1'>
+  <mat-card>
+    <p-table [responsive]='true' [value]='files$ | async'>
+      <ng-template pTemplate='header'>
+        <tr>
+          <th pSortableColumn='name'>
+            <span>
+              {{'headers.name' | translate}}
+            </span>
+            <p-sortIcon field='name'></p-sortIcon>
+          </th>
+          <th pSortableColumn='size'>
+            <span>
+              {{'headers.size' | translate}}
+            </span>
+            <p-sortIcon field='size'></p-sortIcon>
+          </th>
+          <th pSortableColumn='createdAt'>
+            <span>
+              {{'headers.createdAt' | translate}}
+            </span>
+            <p-sortIcon field='createdAt'></p-sortIcon>
+          </th>
+          <th pSortableColumn='updatedAt'>
+            <span>
+              {{'headers.updatedAt' | translate}}
+            </span>
+            <p-sortIcon field='updatedAt'></p-sortIcon>
+          </th>
+          <th>
+            {{'headers.extension' | translate}}
+          </th>
+          <th class='actions-column'></th>
+        </tr>
+      </ng-template>
+      <ng-template let-file pTemplate='body'>
+        <tr>
+          <td class='single-line'>
+            <span class='p-column-title'>
+              {{'headers.name' | translate}}
+            </span>
+            <span>
+              {{file.name}}
+            </span>
+          </td>
+          <td>
+            <span class='p-column-title'>
+              {{'headers.size' | translate}}
+            </span>
+            <span>
+              {{file.parsedSize}}
+            </span>
+          </td>
+          <td>
+            <span class='p-column-title'>
+              {{'headers.createdAt' | translate}}
+            </span>
+            <span>
+              {{file.createdAt}}
+            </span>
+          </td>
+          <td>
+            <span class='p-column-title'>
+              {{'headers.updatedAt' | translate}}
+            </span>
+            <span>
+              {{file.updatedAt}}
+            </span>
+          </td>
+          <td class='single-line'>
+            <span class='p-column-title'>
+              {{'headers.extension' | translate}}
+            </span>
+            <span>
+              {{file.extension}}
+            </span>
+          </td>
+          <td>
+            <files-actions [file]='file'></files-actions>
+          </td>
+        </tr>
+        <tr>
+          <td class='pa-0 progress-bar-row' colspan='6'>
+            <simple-view-progress-bar [id]='file.id'></simple-view-progress-bar>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate='emptymessage'>
+        <tr>
+          <td class='text-center' colspan='6'>
+            {{'messages.noFiles' | translate}}
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </mat-card>
+</div>

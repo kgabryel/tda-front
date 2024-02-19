@@ -1,0 +1,9 @@
+<catalogs-sidenav>
+  <shared-loader *ngIf='search$ | async'></shared-loader>
+  <div *ngIf='(search$ | async) === false'>
+    <div>
+      <catalogs-catalog-view *ngFor='let catalog of catalogs$ | async' [id]='catalog.id'></catalogs-catalog-view>
+    </div>
+    <catalogs-add-button></catalogs-add-button>
+  </div>
+</catalogs-sidenav>

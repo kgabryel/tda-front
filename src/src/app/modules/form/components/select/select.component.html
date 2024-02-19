@@ -1,0 +1,25 @@
+<mat-form-field [formGroup]='formGroup' class='w-100'>
+  <mat-label>
+    {{label | translate}}
+  </mat-label>
+  <button (click)='clear()' mat-icon-button matPrefix type='button'>
+    <mat-icon>
+      clear
+    </mat-icon>
+  </button>
+  <input
+    (click)='openPanel()'
+    (keyup.enter)='selected()'
+    [matAutocomplete]='auto'
+    [placeholder]="'form.searchPlaceholder' | translate"
+    formControlName='search'
+    matInput />
+  <mat-autocomplete #auto='matAutocomplete' (optionSelected)='itemSelected($event)'>
+    <mat-option
+      *ngFor='let item of filteredValues'
+      [ngClass]="{'selected' : isSelected(item, false), 'selected-dark' : isSelected(item, true)}"
+      [value]='item'>
+      {{item.display}}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>

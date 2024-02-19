@@ -1,0 +1,29 @@
+<form (ngSubmit)='submit()' [autocomplete]='null | autocomplete' [formGroup]='form' class='d-flex align-center'>
+  <mat-form-field class='w-100'>
+    <mat-label>
+      {{'form.label.name' | translate}}
+    </mat-label>
+    <input
+      [autocomplete]='null | autocomplete'
+      [formControlName]='formNames.name'
+      [maxLength]='maxNameLength'
+      matInput
+      type='text' />
+    <mat-hint align='end'>
+      {{nameLength$ | async}} / {{maxNameLength}}
+    </mat-hint>
+  </mat-form-field>
+  <button [disabled]='form.invalid' mat-icon-button type='submit'>
+    <mat-icon>
+      add
+    </mat-icon>
+  </button>
+</form>
+<span *ngIf='form.get(formNames.name).invalid && form.get(formNames.name).touched'>
+  <form-errors-container
+    [errors]='errors.name'
+    [input]='form.get(formNames.name)'
+    part='name'
+    prefix='tasks'>
+  </form-errors-container>
+</span>

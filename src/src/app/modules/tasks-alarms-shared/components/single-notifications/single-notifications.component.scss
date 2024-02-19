@@ -1,0 +1,26 @@
+.position > .b-btn {
+  display: none;
+}
+
+@media only screen and (max-width: 570px) {
+  .position {
+    display: block;
+  }
+
+  .position > div {
+    width: 100%;
+    padding: 0;
+  }
+
+  .position > .s-btn {
+    display: none;
+  }
+
+  .position > .b-btn {
+    display: block;
+  }
+
+  .w-50 {
+    width: calc(50vw - 65px);
+  }
+}

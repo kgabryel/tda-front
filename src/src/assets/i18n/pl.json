@@ -1,0 +1,548 @@
+{
+  "messages": {
+    "videoAdded": "Film został dodany.",
+    "videosAdded": "Dodano kilka filmów.",
+    "videoDeleted": "Film został usunięty.",
+    "videoUpdated": "Film został zaktualizowany.",
+    "undoFromDashboard": "Odpięto od dashboardu.",
+    "authError": "Wystąpił błąd autoryzacji.",
+    "serverError": "Wystąpił błąd po stronie serwera.",
+    "invalidDataError": "Przesłano błędne dane.",
+    "unknownError": "Wystąpił nieznany błąd.",
+    "noteAdded": "Notatka została dodana.",
+    "noteDeleted": "Notatka została usunięta.",
+    "noteUpdated": "Notatka została zaktualizowana.",
+    "bookmarkAdded": "Zakładka została dodana.",
+    "bookmarkDeleted": "Zakładka została usunięta.",
+    "bookmarkUpdated": "Zakładka została zaktualizowana.",
+    "colorAdded": "Kolor został dodany.",
+    "colorDeleted": "Kolor został usunięty.",
+    "fileAdded": "Plik został dodany.",
+    "fileDeleted": "Plik został usunięty.",
+    "fileUpdated": "Plik został zaktualizowany",
+    "catalogAdded": "Katalog został dodany.",
+    "catalogDeleted": "Katalog został usunięty.",
+    "catalogUpdated": "Katalog został zaktualizowany.",
+    "emptyCatalog": "Katalog jest pusty.",
+    "noFiles": "Brak plików.",
+    "emailChanged": "E-mail został zmieniony.",
+    "emailConfirmed": "E-mail został potwierdzony.",
+    "settingsUpdated": "Ustawienia zostały zaktualizowane.",
+    "alarmRemoved": "Alarm został usunięty.",
+    "catalogRemoved": "Katalog został usunięty.",
+    "taskRemoved": "Zadanie zostało usunięte.",
+    "noteRemoved": "Notatka została usunięta.",
+    "bookmarkRemoved": "Zakładka została usunięta.",
+    "fileRemoved": "Plik został usunięty.",
+    "videoRemoved": "Film został usunięty.",
+    "alarmAdded": "Alarm został dodany.",
+    "alarmDeleted": "Alarm został usunięty.",
+    "alarmUpdated": "Alarm został zaktualizowany.",
+    "notificationDeleted": "Powiadomienie zostało usunięte.",
+    "alarmDisabled": "Alarm został wyłączony.",
+    "alarmNotModified": "Alarm nie został zmodyfikowany",
+    "alarmActivated": "Alarm został włączony.",
+    "notificationDisabled": "Powiadomienie zostało wyłączone.",
+    "notificationActivated": "Powiadomienie zostało włączone.",
+    "notificationAdded": "Powiadomienie zostało dodane.",
+    "alarmAfterTime": "Alarm nie został włączony (upłynął czas wszystkich powiadomień).",
+    "notificationAfterTime": "Powiadomienie nie zostało włączone (upłynął termin powiadomienia).",
+    "codeMissing": "Brak kodu dezaktywacyjnego.",
+    "taskAdded": "Zadanie zostało dodane.",
+    "taskUpdated": "Zadanie zostało zaktualizowane.",
+    "taskDeleted": "Zadanie zostało usunięte.",
+    "changeStatusError": "Przed ukończeniem głównego zadania wszystkie podzadania muszą zostać ukończone.",
+    "taskCreated": "Zadanie zostało dodane.",
+    "statusUpdated": "Zadanie zostało zaktualizowane.",
+    "invalidEmail": "Błędny E-mail.",
+    "sendCorrect": "Wysłano poprawnie.",
+    "invalidToken": "Błędny kod.",
+    "passwordChanged": "Hasło zostało zmnienione.",
+    "notificationDeleteError": "Alarm musi zawierać minimum jedno powiadomienie.",
+    "copied": "Skopiowano.",
+    "invalidData": "Błędne dane."
+  },
+  "form": {
+    "actions": {
+      "create": "Utwórz",
+      "createAndContinue": "Utwórz i kontynuuj",
+      "update": "Aktualizuj",
+      "clear": "Czyść",
+      "preview": "Podgląd",
+      "next": "Dalej",
+      "delete": "Usuń",
+      "cancel": "Anuluj",
+      "yes": "Tak",
+      "no": "Nie",
+      "add": "Dodaj",
+      "save": "Zapisz",
+      "close": "Zamknij",
+      "select": "Wybierz",
+      "changeEmail": "Zmień adres",
+      "startEdit": "Edytuj",
+      "deleteEmail": "Usuń adres",
+      "sendCode": "Wyślij kod ponownie",
+      "change": "Zmień",
+      "addNotification": "Dodaj powiadomienie",
+      "changePassword": "Zmień hasło",
+      "login": "Zaloguj",
+      "register": "Zarejestruj",
+      "reset": "Resetuj hasło",
+      "edit": "Edytuj",
+      "deleteNotification": "Usuń powiadomienie",
+      "deactivate": "Dezaktywuj",
+      "activate": "Aktywuj",
+      "notModify": "Nie modyfikuj",
+      "deactivateAlarms": "Dezaktywuj alarmy",
+      "reject": "Odrzuć",
+      "detach": "Odepnij",
+      "execute": "Wykonaj"
+    },
+    "label": {
+      "name": "Nazwa",
+      "content": "Treść",
+      "interval": "Odstęp",
+      "intervalDays": "Ilość dni",
+      "intervalWeeks": "Ilość tygodni",
+      "intervalMonths": "Ilość miesięcy",
+      "intervalType": "Typ",
+      "catalogs": "Katalogi",
+      "alarms": "Alarmy",
+      "tasks": "Zadania",
+      "notes": "Notatki",
+      "bookmarks": "Zakładki",
+      "files": "Pliki",
+      "videos": "Filmy",
+      "statuses": "Statusy",
+      "assignedToDashboard": "Przypięty do strony głównej",
+      "href": "Adres URL",
+      "backgroundColor": "Kolor tła",
+      "textColor": "Kolor tekstu",
+      "dates": "Zakres dat",
+      "notificationTypes": "Typy powiadomień",
+      "time": "Godzina",
+      "date": "Data",
+      "mainTask": "Główne zadanie",
+      "color": "Kolor",
+      "watched": "Obejrzany",
+      "file": "Plik",
+      "day": "Termin powiadomienia",
+      "search": "Szukuj",
+      "add": "Dodaj",
+      "task": "Zadanie",
+      "type": "Typ",
+      "from": "Od",
+      "to": "To",
+      "hideDone": "Ukryj ukończone",
+      "hideRejected": "Ukryj odrzucone",
+      "subtasks": "Podzadania",
+      "status": "Status",
+      "defaultPagination": "Domyślna ilość w paginacji",
+      "hideDoneTasks": "Ukrywaj ukończone zadania",
+      "hideRejectedTasks": "Ukrywaj odrzucone zadania",
+      "hideInactiveAlarms": "Ukrywaj nieaktywne alarmy",
+      "hideDoneSubtasks": "Ukrywaj ukończone podzadania",
+      "hideInactiveNotifications": "Ukrywaj nieaktywne powiadomienia",
+      "hideDoneTasksInTasksGroups": "Ukrywaj ukończone zadania w zadaniach okresowych",
+      "hideInactiveAlarmsInAlarmsGroups": "Ukrywaj nieaktyne alarmy w alarmach okresowych",
+      "autocomplete": "Autouzupełnianie pól formularzy",
+      "alarm": "Alarm",
+      "repeatPassword": "Powtórz hasło",
+      "newPassword": "Nowe hasło",
+      "currentPassword": "Aktualne hasło",
+      "email": "E-mail",
+      "length": "Ilość",
+      "page": "Strona",
+      "previousPage": "Wstecz",
+      "nextPage": "Dalej",
+      "password": "Hasło",
+      "alarmIncluded": "Zawiera alarm",
+      "extension": "Rozszerzenie",
+      "icon": "Ikona",
+      "notificationLanguage": "Język powiadomień",
+      "viewMode": "Wygląd"
+    },
+    "options": {
+      "onlyWithTask": "Tylko z zadaniem",
+      "onlyWithoutTask": "Tylko bez zadania",
+      "onlyWithAlarm": "Tylko z alarmem",
+      "onlyWithoutAlarm": "Tylko bez alarmu",
+      "onlySingle": "Tylko zwykłe",
+      "onlyPeriodic": "Tylko okresowe",
+      "onlyActive": "Tylko aktywne",
+      "onlyInactive": "Tylko nieaktywne",
+      "onlyWithDate": "Tylko z datą",
+      "onlyWithoutDate": "Tylko bez daty",
+      "onlyWithSubtasks": "Tylko z podzadaniami",
+      "onlyWithoutSubtasks": "Tylko bez podzadań",
+      "languagepl": "Język polski",
+      "languageen": "Język angielski",
+      "modelight": "Jasny",
+      "modedark": "Ciemny"
+    },
+    "searchPlaceholder": "Szukaj...",
+    "questions": {
+      "simpleDelete": "Jesteś pewien?",
+      "modifyPeriodicAlarm": "Co zrobić z przyszłymi alarmami?",
+      "deleteConnectedAlarms": "Czy usunąć powiązane alarmy?",
+      "modifyPeriodicTask": "Co zrobić z przyszłymi zadaniami?",
+      "deleteConnectedAlarm": "Czy usunąć powiązany alarm?",
+      "deleteConnectedTasks": "Czy usunąć powiązane zadania?"
+    },
+    "info": {
+      "deleteAlarm": "Spowoduje to też usunięcie wszystkich alarmów z grupy.",
+      "deleteLastNotification": "Spowoduje to też usunięcie alarmu."
+    }
+  },
+  "tooltips": {
+    "delete": "Usuń",
+    "edit": "Edytuj",
+    "show": "Pokaż",
+    "download": "Pobierz",
+    "catalogs": "Katalogi",
+    "bookmarks": "Zakładki",
+    "alarms": "Alarmy",
+    "videos": "Filmy",
+    "files": "Pliki",
+    "tasks": "Zadania",
+    "notes": "Notatki",
+    "watched": "Obejrzane",
+    "notWatched": "Nieobejrzane",
+    "search": "Szukaj",
+    "tasksToDo": "Do zrobienia",
+    "nextAlarm": "Następny alarm",
+    "goTo": "Przejdź",
+    "notifications": "Powiadomienia",
+    "showContent": "Treść",
+    "connectTask": "Powiąż zadanie",
+    "notificationError": "Powiadomienia nie zostanie wystłane",
+    "showSubtasks": "Podzadania",
+    "showTasks": "Zadania",
+    "changeStatus": "Zmień status",
+    "addDate": "Dodaj datę",
+    "connectMainTask": "Przypnij do zadania",
+    "addAlarm": "Dodaj alarm",
+    "statusDisabled": "Nie wszystkie podzadania zostały ukończone lub odrzucone.",
+    "statusWillBeDuplicated": "Status zostanie powielony w podzadaniach.",
+    "assignAlarm": "Przypisz alarm",
+    "changeMainTask": "Zmień główne zadanie",
+    "copy": "Skopiuj"
+  },
+  "headers": {
+    "fileAdd": "Dodawanie nowego pliku",
+    "fileUpdate": "Edycja pliku",
+    "videoAdd": "Dodawanie nowego filmu",
+    "videoUpdate": "Edycja filmu",
+    "catalogAdd": "Dodawanie nowego katalogu",
+    "catalogUpdate": "Edycja katalogu",
+    "bookmarkAdd": "Dodawanie nowej zakładki",
+    "bookmarkUpdate": "Edycja zakładki",
+    "noteAdd": "Dodawanie nowej notatki",
+    "noteUpdate": "Edycja notatki",
+    "connectedTasks": "Powiązane zadania",
+    "connectedCatalogs": "Powiązane katalogi",
+    "connectedNotes": "Powiązane notatki",
+    "connectedBookmarks": "Powiązane zakładki",
+    "connectedFiles": "Powiązane pliki",
+    "connectedVideos": "Powiązane filmy",
+    "name": "Nazwa",
+    "size": "Rozmiar",
+    "createdAt": "Utworzono",
+    "updatedAt": "Zaktualizowano",
+    "extension": "Rozszerzenie",
+    "tasks": "Zadania",
+    "bookmarks": "Zakładki",
+    "notes": "Notatki",
+    "alarms": "Alarmy",
+    "catalogs": "Katalogi",
+    "files": "Pliki",
+    "videos": "Filmy",
+    "singleTask": "Zadanie",
+    "periodicTask": "Zadanie okresowe",
+    "singleAlarm": "Alarm",
+    "periodicAlarm": "Alarm okresowy",
+    "settings": "Ustawienia",
+    "changePassword": "Zmiana hasła",
+    "email": "E-mail",
+    "savedColors": "Zapisane kolory",
+    "newNote": "Dodaj nową notatkę",
+    "newBookmark": "Dodaj nową zakładkę",
+    "notFound": "Strona nie została znaleziona",
+    "emailConfirmed": "E-mail potwierdzony",
+    "emailUnconfirmed": "E-mail niepotwierdzony",
+    "noEmail": "Brak adresu E-mail",
+    "hex": "Hex",
+    "Color": "Kolor",
+    "tasksForToday": "Dzisiejsze zadania",
+    "undoneTasks": "Nieukończone zadania",
+    "editFile": "Aktualizuj plik",
+    "editFileData": "Aktualizuj informacje",
+    "alarm": "Alarm",
+    "notifications": "Powiadomienia",
+    "task": "Zadanie",
+    "pinnedGroup": "Powiązane",
+    "clear": "Usuń",
+    "content": "Treść",
+    "color": "Kolor",
+    "fileIsUploading": "Trwa wysyłanie pliku"
+  },
+  "routes": {
+    "facebookLogin": "Zaloguj przez FB",
+    "toLogin": "Masz już konto? Zaloguj się",
+    "toRegister": "Nie masz konta? Zarejestruj się",
+    "resetPassword": "Resetuj hasło"
+  },
+  "bookmarks": {
+    "form": {
+      "errors": {
+        "href": {
+          "required": "Adres jest wymagany",
+          "url": "Adres ma zły format."
+        },
+        "name": {
+          "required": "Nazwa jest wymagana."
+        },
+        "backgroundColor": {
+          "required": "Kolor tła jest wymagany."
+        },
+        "textColor": {
+          "required": "Kolor tekstu jest wymagany."
+        },
+        "icon": {
+          "url": "Adres ma zły format."
+        }
+      }
+    }
+  },
+  "notes": {
+    "form": {
+      "errors": {
+        "name": {
+          "required": "Nazwa jest wymagana."
+        },
+        "content": {
+          "required": "Treść jest wymagana."
+        },
+        "backgroundColor": {
+          "required": "Kolor tła jest wymagany."
+        },
+        "textColor": {
+          "required": "Kolor tekstu jest wymagany."
+        }
+      }
+    }
+  },
+  "menu": {
+    "dashboard": "Dashboard",
+    "tasks": "Zadania",
+    "addTask": "Dodaj zadanie",
+    "alarms": "Alarmy",
+    "addAlarm": "Dodaj alarm",
+    "notes": "Notatki",
+    "bookmarks": "Zakładki",
+    "files": "Pliki",
+    "videos": "Filmy",
+    "catalogs": "Katalogi",
+    "settings": "Ustawienia"
+  },
+  "alarms": {
+    "notificationChecked": "Aktywne",
+    "notificationUnchecked": "Nieaktywne",
+    "alarmActive": "Aktywny",
+    "alarmInactive": "Nieaktywny",
+    "task": "Zadanie",
+    "hideInactive": "Ukryj nieaktywne",
+    "deleteQuestion": "Czy usunąć powiązane alarmy?",
+    "form": {
+      "errors": {
+        "name": {
+          "required": "Nazwa jest wymagana."
+        },
+        "notificationTime": {
+          "required": "Czas powiadomienia jest wymagany."
+        },
+        "notificationType": {
+          "required": "Dzień powiadomienia jest wymagany."
+        },
+        "types": {
+          "required": "Typ jest wymagany."
+        },
+        "startDate": {
+          "required": "Początkowa data jest wymagana."
+        },
+        "endDate": {
+          "sameDates": "Data końcowa jest wymagana."
+        },
+        "interval": {
+          "required": "Odstęp jest wymagany."
+        },
+        "intervalType": {
+          "required": "Typ odstępu jest wymagany."
+        }
+      }
+    }
+  },
+  "tasks": {
+    "alarm": "Alarm",
+    "hideDone": "Ukryj ukończone",
+    "deleteQuestion": "Czy usunąć powiązane alarmy?",
+    "deleteSubtasks": "Czy usunąć podzadania?",
+    "taskActive": "Aktywne",
+    "taskInactive": "Nieaktywne",
+    "form": {
+      "errors": {
+        "name": {
+          "required": "Nazwa jest wymagana."
+        },
+        "mainTask": {
+          "required": "Główne zadanie jest wymagane."
+        },
+        "startDate": {
+          "required": "Początkowa data jest wymagane."
+        },
+        "endDate": {
+          "sameDates": "Data końcowa musi być inna od początkowej."
+        },
+        "interval": {
+          "required": "Odstęp jest wymagany."
+        },
+        "intervalType": {
+          "required": "Typ odstępu jest wymagany."
+        }
+      }
+    }
+  },
+  "dashboard": {
+    "prev": "Poprzedni miesiąc",
+    "current": "Aktualny miesiąc",
+    "next": "Następny miesiąc"
+  },
+  "header": {
+    "logout": "Wyloguj",
+    "todayAt": "Dzisiaj o:",
+    "tomorrowAt": "Jutro o:"
+  },
+  "auth": {
+    "form": {
+      "errors": {
+        "email": {
+          "required": "E-mail jest wymagany.",
+          "email": "E-mail ma zły format."
+        },
+        "password": {
+          "required": "Hasło jest wymagane."
+        }
+      }
+    }
+  },
+  "taskStatuses": {
+    "to-do": "Do zrobienia",
+    "in-progress": "W trakcie",
+    "done": "Zrobione",
+    "undone": "Nieukończone",
+    "rejected": "Odrzucone",
+    "blocked": "Zablokowane"
+  },
+  "files": {
+    "form": {
+      "errors": {
+        "name": {
+          "required": "Nazwa jest wymagana."
+        },
+        "file": {
+          "required": "Plik jest wymagany.",
+          "maxSize": "Plik jest zbyt duży."
+        }
+      }
+    }
+  },
+  "videos": {
+    "form": {
+      "errors": {
+        "href": {
+          "required": "Adres jest wymagany.",
+          "url": "Adres ma zły format."
+        },
+        "name": {
+          "required": "Nazwa jest wymagana."
+        }
+      }
+    }
+  },
+  "colors": {
+    "form": {
+      "errors": {
+        "name": {
+          "required": "Nazwa jest wymagana."
+        },
+        "color": {
+          "required": "Kolor jest wymagany."
+        }
+      }
+    }
+  },
+  "settings": {
+    "form": {
+      "errors": {
+        "currentPassword": {
+          "required": "Aktualne hasło jest wymagane."
+        },
+        "password": {
+          "required": "Nowe hasło jest wymagane."
+        },
+        "repeatPassword": {
+          "required": "Powtórzenie hasła jest wymagane.",
+          "differentPasswords": "Hasła są różne."
+        }
+      }
+    },
+    "buttons": {
+      "enableNotifications": "Zezwól na powiadomienia"
+    },
+    "codeSentMessage": "Kod został wysłany"
+  },
+  "resetPassword": {
+    "form": {
+      "errors": {
+        "password": {
+          "required": "Hasło jest wymagane."
+        },
+        "repeatPassword": {
+          "required": "Powtórzenie hasła jest wymagane.",
+          "differentPasswords": "Hasła są różne."
+        }
+      }
+    }
+  },
+  "catalogs": {
+    "form": {
+      "errors": {
+        "name": {
+          "required": "Nazwa jest wymagana."
+        }
+      }
+    }
+  },
+  "shared": {
+    "from": "Od: ",
+    "to": "Do: ",
+    "day": "Dzień",
+    "week": "Tydzień",
+    "month": "Miesiąc",
+    "belongsTo": "Należy do",
+    "partOf": "Część",
+    "alarmsTypes": {
+      "days": "Dni",
+      "weeks": "Tygodnie",
+      "months": "Miesiące"
+    },
+    "notificationsTypes": {
+      "previousDay": "Dzień przed",
+      "currentDay": "Dzień alarmu",
+      "nextDay": "Dzień po",
+      "day": "x dni przed",
+      "week": "x tygodni przed",
+      "month": "x miesięcy przed (30 dni)"
+    }
+  }
+}

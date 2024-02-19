@@ -1,0 +1,15 @@
+@import 'colors';
+
+.selected {
+  border-left: 5px solid $color-primary;
+  width: calc(100% - 5px);
+  background-color: #fffef6;
+}
+
+.dark-mode :host ::ng-deep .selected {
+  background-color: #303030;
+}
+
+.selected .name {
+  color: $color-primary;
+}

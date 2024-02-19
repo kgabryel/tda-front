@@ -1,0 +1,32 @@
+<div class='d-flex justify-space-between w-100'>
+  <button (click)='emitShowCatalogs()' [disabled]='note.catalogs.length === 0' mat-icon-button type='button'>
+    <mat-icon [matTooltip]="'tooltips.catalogs' | translate | pinnedTooltip : note.catalogs.length">
+      folder
+    </mat-icon>
+  </button>
+  <button (click)='emitShowTasks()' [disabled]='note.tasks.length === 0' mat-icon-button type='button'>
+    <mat-icon [matTooltip]="'tooltips.tasks' | translate | pinnedTooltip : note.tasks.length">
+      rule
+    </mat-icon>
+  </button>
+  <button
+    *ngIf='previewAvailable'
+    [matTooltip]="'tooltips.goTo' | translate"
+    [routerLink]='note.id | noteUrl'
+    mat-icon-button
+    type='button'>
+    <mat-icon>
+      visibility
+    </mat-icon>
+  </button>
+  <button (click)='emitEdit()' [matTooltip]="'tooltips.edit' | translate" mat-icon-button type='button'>
+    <mat-icon>
+      create
+    </mat-icon>
+  </button>
+  <button (click)='emitDelete()' [matTooltip]="'tooltips.delete' | translate" mat-icon-button type='button'>
+    <mat-icon>
+      delete
+    </mat-icon>
+  </button>
+</div>

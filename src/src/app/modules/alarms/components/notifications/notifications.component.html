@@ -1,0 +1,13 @@
+<shared-pagination
+  *ngIf='notifications.length > 5'
+  [config$]='config$'
+  [limitField]='limitField'
+  [pageField]='pageField'>
+</shared-pagination>
+<alarms-notification
+  *ngFor='let notification of notifications | paginate : (config$ | async)'
+  [alarm]='alarm'
+  [disableEmail]='disableEmail'
+  [notification]='notification'
+  [time]='notification.time'>
+</alarms-notification>

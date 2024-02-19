@@ -1,0 +1,87 @@
+<div [formGroup]='form'>
+  <form-text-input
+    [errors]='errors.name'
+    [field]='form.get(formNames.name)'
+    [maxLength]='maxNameLength'
+    label='form.label.name'
+    part='name'
+    prefix='alarms'>
+  </form-text-input>
+  <mat-form-field (click)='picker.open()' class='w-100 c-pointer'>
+    <mat-label>
+      {{'form.label.dates' | translate}}
+    </mat-label>
+    <mat-date-range-input [formGroup]='form' [rangePicker]='picker'>
+      <input [formControlName]='formNames.start' class='c-pointer' matStartDate readonly />
+      <input [formControlName]='formNames.stop' class='c-pointer' matEndDate readonly />
+    </mat-date-range-input>
+    <mat-datepicker-toggle [for]='picker' matSuffix></mat-datepicker-toggle>
+    <mat-date-range-picker #picker disabled='false'></mat-date-range-picker>
+  </mat-form-field>
+  <span *ngIf='form.get(formNames.start).invalid && form.get(formNames.start).touched'>
+    <form-errors-container
+      [errors]='errors.startDate'
+      [input]='form.get(formNames.start)'
+      part='startDate'
+      prefix='alarms'>
+    </form-errors-container>
+  </span>
+  <span *ngIf='form.get(formNames.stop).invalid && form.get(formNames.stop).touched'>
+    <form-errors-container
+      [errors]='errors.endDate'
+      [input]='form.get(formNames.stop)'
+      part='endDate'
+      prefix='alarms'>
+    </form-errors-container>
+  </span>
+  <div class='two-columns-container'>
+    <div>
+      <mat-form-field class='w-100'>
+        <mat-label>
+          {{'form.label.interval' | translate}}
+        </mat-label>
+        <input
+          [autocomplete]='null | autocomplete'
+          [formControlName]='formNames.interval'
+          matInput
+          min='1'
+          type='number' />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class='w-100'>
+        <mat-label>
+          {{'form.label.intervalType' | translate}}
+        </mat-label>
+        <mat-select [formControlName]='formNames.intervalType'>
+          <mat-option *ngFor='let type of types' [value]='type.value'>
+            {{'shared.alarmsTypes.' + type.name | translate}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <span *ngIf='form.get(formNames.interval).invalid && form.get(formNames.interval).touched'>
+    <form-errors-container
+      [errors]='errors.interval'
+      [input]='form.get(formNames.interval)'
+      part='interval'
+      prefix='alarms'>
+    </form-errors-container>
+  </span>
+  <span *ngIf='form.get(formNames.intervalType).invalid && form.get(formNames.intervalType).touched'>
+    <form-errors-container
+      [errors]='errors.intervalType'
+      [input]='form.get(formNames.intervalType)'
+      part='intervalType'
+      prefix='alarms'>
+    </form-errors-container>
+  </span>
+  <form-multi-select
+    *ngIf='(catalogs$ | async)?.length > 0'
+    [formGroup]='form.get(formNames.catalogs)'
+    [reset]='reset$'
+    [values]='catalogs$ | async'
+    label='form.label.catalogs'>
+  </form-multi-select>
+</div>

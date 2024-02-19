@@ -1,0 +1,23 @@
+<mat-drawer-container [ngClass]="{'small' : small$ | async}" autosize hasBackdrop='true'>
+  <mat-drawer (closed)='close()' [opened]='(showed$ | async).open' mode='over' position='end'>
+    <bookmarks-add-form (formSubmitted)='close()' *ngIf='(showed$ | async).model === null'>
+    </bookmarks-add-form>
+    <bookmarks-edit-form
+      (formSubmitted)='close()'
+      *ngIf='(showed$ | async).model !== null'
+      [bookmark]='(showed$ | async).model'>
+    </bookmarks-edit-form>
+  </mat-drawer>
+  <mat-drawer
+    (closed)='closePinned()'
+    [autoFocus]='false'
+    [opened]='(showedPinned$ | async).open'
+    mode='over'
+    position='start'>
+    <shared-pinned-catalogs *ngIf='(showedPinned$ | async).type === 1' [catalogs]='(showedPinned$ | async).catalogs'>
+    </shared-pinned-catalogs>
+    <shared-pinned-tasks *ngIf='(showedPinned$ | async).type === 2' [tasks]='(showedPinned$ | async).tasks'>
+    </shared-pinned-tasks>
+  </mat-drawer>
+  <ng-content></ng-content>
+</mat-drawer-container>

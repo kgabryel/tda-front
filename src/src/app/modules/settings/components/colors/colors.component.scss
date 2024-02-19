@@ -1,0 +1,47 @@
+.color-container {
+  height: 25px;
+  border: 1px solid grey;
+  border-radius: 3px;
+}
+
+.actions-column {
+  width: 60px;
+}
+
+.big-btn {
+  display: none;
+  width: calc(100% - 10px);
+  margin: 0 5px 0 5px;
+}
+
+.small-btn {
+  display: inline-block;
+}
+
+@media only screen and (max-width: 640px) {
+  .big-btn {
+    display: inline-block;
+  }
+  .small-btn {
+    display: none;
+  }
+  .color-container {
+    display: inline-block;
+    height: 13px;
+    width: 150px;
+  }
+}
+
+.dark-mode :host ::ng-deep tr {
+  background-color: #424242;
+  color: white;
+}
+
+.dark-mode :host ::ng-deep .p-datatable .p-datatable-thead > tr > th {
+  background: #424242;
+  color: white;
+}
+
+.dark-mode :host ::ng-deep .p-datatable .p-sortable-column .p-sortable-column-icon {
+  color: white;
+}

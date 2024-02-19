@@ -1,0 +1,549 @@
+{
+  "messages": {
+    "videoAdded": "Video has been added.",
+    "videosAdded": "Several videos have been added.",
+    "videoDeleted": "Video has been deleted.",
+    "videoUpdated": "Video has been updated",
+    "undoFromDashboard": "Unlinked from the dashboard.",
+    "authError": "An authorization error has occurred.",
+    "serverError": "A server-side error has occurred.",
+    "invalidDataError": "Invalid data sent.",
+    "unknownError": "An unknown error has occurred.",
+    "noteAdded": "The note has been added.",
+    "noteDeleted": "The note has been deleted.",
+    "noteUpdated": "Note has been updated.",
+    "bookmarkAdded": "The bookmark has been added.",
+    "bookmarkDeleted": "The bookmark has been deleted.",
+    "bookmarkUpdated": "The bookmark has been updated.",
+    "colorAdded": "The color has been added.",
+    "colorDeleted": "The color has been removed.",
+    "fileAdded": "The file has been added.",
+    "fileDeleted": "The file has been deleted.",
+    "fileUpdated": "File has been updated.",
+    "catalogAdded": "The catalog has been added.",
+    "catalogDeleted": "The catalog has been deleted.",
+    "catalogUpdated": "Catalog has been updated.",
+    "emptyCatalog": "The directory is empty.",
+    "noFiles": "No files.",
+    "emailChanged": "E-mail has been changed.",
+    "emailConfirmed": "E-mail has been confirmed.",
+    "settingsUpdated": "Settings have been updated.",
+    "alarmRemoved": "The alarm has been removed.",
+    "catalogRemoved": "The catalog has been deleted.",
+    "taskRemoved": "The task has been deleted.",
+    "noteRemoved": "The note has been deleted.",
+    "bookmarkRemoved": "The bookmark has been removed.",
+    "fileRemoved": "The file has been deleted.",
+    "videoRemoved": "Video has been removed.",
+    "alarmAdded": "An alarm has been added.",
+    "alarmDeleted": "The alarm has been deleted.",
+    "alarmUpdated": "Alarm has been updated.",
+    "notificationDeleted": "Notification has been removed.",
+    "alarmDisabled": "Alarm has been disabled.",
+    "alarmNotModified": "Alarm has not been modified.",
+    "alarmActivated": "The alarm has been enabled.",
+    "notificationDisabled": "Notification has been disabled.",
+    "notificationActivated": "Notification has been enabled.",
+    "notificationAdded": "Notification has been added.",
+    "alarmAfterTime": "The alarm has not been activated (all notifications have expired).",
+    "notificationAfterTime": "Notification has not been enabled (notification deadline has expired).",
+    "codeMissing": "No deactivation code.",
+    "taskAdded": "The task has been added.",
+    "taskUpdated": "The task has been updated.",
+    "taskDeleted": "The task has been deleted.",
+    "changeStatusError": "Before completing the main task, all sub-tasks must be completed.",
+    "taskCreated": "The task has been added.",
+    "statusUpdated": "The task has been updated.",
+    "invalidEmail": "Invalid E-mail.",
+    "sendCorrect": "Sent correctly.",
+    "invalidToken": "Invalid Code.",
+    "passwordChanged": "The password has been changed.",
+    "notificationDeleteError": "The alert must contain at least one notification.",
+    "copied": "Copied.",
+    "invalidData": "Invalid Data.",
+    "copy": "Copy"
+  },
+  "form": {
+    "actions": {
+      "create": "Create",
+      "createAndContinue": "Create and continue",
+      "update": "Update",
+      "clear": "Clear",
+      "preview": "Preview",
+      "next": "Next",
+      "delete": "Delete",
+      "cancel": "Cancel",
+      "yes": "Yes",
+      "no": "No",
+      "add": "Add",
+      "save": "Save",
+      "close": "Close",
+      "select": "Select",
+      "changeEmail": "Change E-mail",
+      "startEdit": "Edit",
+      "deleteEmail": "Delete E-mail",
+      "sendCode": "Send the code again",
+      "change": "Change",
+      "addNotification": "Add Notification",
+      "changePassword": "Change password",
+      "login": "Log in",
+      "register": "Register",
+      "reset": "Reset password",
+      "edit": "edit",
+      "deleteNotification": "Delete notification",
+      "deactivate": "Deactivate",
+      "activate": "Activate",
+      "notModify": "Not modify",
+      "deactivateAlarms": "Deactivate alarms",
+      "reject": "Reject",
+      "detach": "Detach",
+      "execute": "Execute"
+    },
+    "label": {
+      "name": "Name",
+      "content": "Content",
+      "interval": "Interval",
+      "intervalDays": "Days amount",
+      "intervalWeeks": "Weeks amount",
+      "intervalMonths": "Months amount",
+      "intervalType": "Interval type",
+      "catalogs": "Catalogs",
+      "alarms": "Alarms",
+      "tasks": "Tasks",
+      "notes": "Notes",
+      "bookmarks": "Bookmarks",
+      "files": "Files",
+      "videos": "Videos",
+      "statuses": "Statuses",
+      "assignedToDashboard": "Pinned to home page",
+      "href": "URL",
+      "backgroundColor": "Background color",
+      "textColor": "Text color",
+      "dates": "Date range",
+      "notificationTypes": "Notification types",
+      "time": "Hour",
+      "date": "Date",
+      "mainTask": "Main Task",
+      "color": "Color",
+      "watched": "Watched",
+      "file": "File",
+      "day": "Notification term",
+      "search": "Search",
+      "add": "Add",
+      "task": "Task",
+      "type": "Type",
+      "from": "From",
+      "to": "To",
+      "hideDone": "Hide Completed",
+      "hideRejected": "Hide Rejected",
+      "subtasks": "Subtasks",
+      "status": "Status",
+      "defaultPagination": "Default pagination number",
+      "hideDoneTasks": "Hide completed tasks",
+      "hideRejectedTasks": "Hide rejected tasks",
+      "hideInactiveAlarms": "Hide inactive alarms",
+      "hideDoneSubtasks": "Hide completed subtasks",
+      "hideInactiveNotifications": "Hide inactive notifications",
+      "hideDoneTasksInTasksGroups": "Hide completed tasks in periodic tasks",
+      "hideInactiveAlarmsInAlarmsGroups": "Hide inactive alarms in periodic alarms",
+      "autocomplete": "Autocomplete form fields",
+      "alarm": "Alarm",
+      "repeatPassword": "Repeat password",
+      "newPassword": "New password",
+      "currentPassword": "Current password",
+      "email": "E-mail",
+      "length": "Number",
+      "page": "Page",
+      "previousPage": "Back",
+      "nextPage": "Next",
+      "password": "Password",
+      "alarmIncluded": "Contains alarm",
+      "extension": "Extension",
+      "icon": "Icon",
+      "notificationLanguage": "Notification language",
+      "viewMode": "Appearance"
+    },
+    "options": {
+      "onlyWithTask": "Only with task",
+      "onlyWithoutTask": "Only without task",
+      "onlyWithAlarm": "Only with alarm",
+      "onlyWithoutAlarm": "Only without alarm",
+      "onlySingle": "Only Single",
+      "onlyPeriodic": "Only periodic",
+      "onlyActive": "Only active",
+      "onlyInactive": "Only inactive",
+      "onlyWithDate": "Only with date",
+      "onlyWithoutDate": "Only without date",
+      "onlyWithSubtasks": "Only with subtasks",
+      "onlyWithoutSubtasks": "Only No Subtasks",
+      "languagepl": "Polish language",
+      "languageen": "English language",
+      "modelight": "Light",
+      "modedark": "Dark"
+    },
+    "searchPlaceholder": "Search ...",
+    "questions": {
+      "simpleDelete": "Are you sure?",
+      "modifyPeriodicAlarm": "What to do with future alarms?",
+      "deleteConnectedAlarms": "Delete connected alarms?",
+      "modifyPeriodicTask": "What to do with future tasks?",
+      "deleteConnectedAlarm": "Delete connected alarm?",
+      "deleteConnectedTasks": "Delete connected tasks?"
+    },
+    "info": {
+      "deleteAlarm": "This will also remove all alarms from the group.",
+      "deleteLastNotification": "This will also remove alarm."
+    }
+  },
+  "tooltips": {
+    "delete": "Delete",
+    "edit": "Edit",
+    "show": "Show",
+    "download": "Download",
+    "catalogs": "Catalogs",
+    "bookmarks": "Bookmarks",
+    "alarms": "Alarms",
+    "videos": "Videos",
+    "files": "Files",
+    "tasks": "Tasks",
+    "notes": "Notes",
+    "watched": "Watched",
+    "notWatched": "Not Watched",
+    "search": "Search",
+    "tasksToDo": "To Do",
+    "nextAlarm": "Next alarm",
+    "goTo": "Go",
+    "notifications": "Notifications",
+    "showContent": "Content",
+    "connectTask": "Bind task",
+    "notificationError": "Notifications will not be sent",
+    "showSubtasks": "Subtasks",
+    "showTasks": "Tasks",
+    "changeStatus": "Change status",
+    "addDate": "Add date",
+    "connectMainTask": "Bind to task",
+    "addAlarm": "Add alarm",
+    "statusDisabled": "Not all subtasks have been completed or rejected.",
+    "statusWillBeDuplicated": "Status will be duplicated in the subtasks.",
+    "assignAlarm": "Assign alarm",
+    "changeMainTask": "Change main task",
+    "copy": "Copy"
+  },
+  "headers": {
+    "fileAdd": "Adding a new file",
+    "fileUpdate": "Editing file",
+    "videoAdd": "Adding a new video",
+    "videoUpdate": "Editing video",
+    "catalogAdd": "Adding a new catalog",
+    "catalogUpdate": "Editing the catalog",
+    "bookmarkAdd": "Adding a new bookmark",
+    "bookmarkUpdate": "Editing a bookmark",
+    "noteAdd": "Adding a new note",
+    "noteUpdate": "Editing a note",
+    "connectedTasks": "Related tasks",
+    "connectedCatalogs": "Related Directories",
+    "connectedNotes": "Connected Notes",
+    "connectedBookmarks": "Related Bookmarks",
+    "connectedFiles": "Related Files",
+    "connectedVideos": "Related Videos",
+    "name": "Name",
+    "size": "Size",
+    "createdAt": "Created",
+    "updatedAt": "Updated",
+    "extension": "Extension",
+    "tasks": "Tasks",
+    "bookmarks": "Bookmarks",
+    "notes": "Notes",
+    "alarms": "Alarms",
+    "catalogs": "Catalogs",
+    "files": "Files",
+    "videos": "Videos",
+    "singleTask": "Task",
+    "periodicTask": "Periodic Task",
+    "singleAlarm": "Alarm",
+    "periodicAlarm": "Periodic alarm",
+    "settings": "Settings",
+    "changePassword": "Password change",
+    "email": "E-mail",
+    "savedColors": "Saved Colors",
+    "newNote": "Add a new note",
+    "newBookmark": "Add new bookmark",
+    "notFound": "The page was not found",
+    "emailConfirmed": "Confirmed e-mail",
+    "emailUnconfirmed": "E-mail unconfirmed",
+    "noEmail": "No e-mail address",
+    "hex": "Hex",
+    "Color": "Color",
+    "tasksForToday": "Today's tasks",
+    "undoneTasks": "Unfinished Tasks",
+    "editFile": "Update file",
+    "editFileData": "Update information",
+    "alarm": "Alarm",
+    "notifications": "Notifications",
+    "task": "Task",
+    "pinnedGroup": "Related",
+    "clear": "Delete",
+    "content": "Content",
+    "color": "Color",
+    "fileIsUploading": "File uploading"
+  },
+  "routes": {
+    "facebookLogin": "Login via FB",
+    "toLogin": "Already have an account? Log in",
+    "toRegister": "You don't have an account? Register",
+    "resetPassword": "Reset password"
+  },
+  "bookmarks": {
+    "form": {
+      "errors": {
+        "href": {
+          "required": "Address is required",
+          "url": "Address is not in the correct format."
+        },
+        "name": {
+          "required": "Name is required."
+        },
+        "backgroundColor": {
+          "required": "Background color is required."
+        },
+        "textColor": {
+          "required": "Text color is required."
+        },
+        "icon": {
+          "url": "Address is not in the correct format."
+        }
+      }
+    }
+  },
+  "notes": {
+    "form": {
+      "errors": {
+        "name": {
+          "required": "Name is required."
+        },
+        "content": {
+          "required": "Content is required."
+        },
+        "backgroundColor": {
+          "required": "Background color is required."
+        },
+        "textColor": {
+          "required": "Text color is required."
+        }
+      }
+    }
+  },
+  "menu": {
+    "dashboard": "Dashboard",
+    "tasks": "Tasks",
+    "addTask": "Add task",
+    "alarms": "Alarms",
+    "addAlarm": "Add alarm",
+    "notes": "Notes",
+    "bookmarks": "Bookmarks",
+    "files": "Files",
+    "videos": "Videos",
+    "catalogs": "Catalogs",
+    "settings": "Settings"
+  },
+  "alarms": {
+    "notificationChecked": "Active",
+    "notificationUnchecked": "Inactive",
+    "alarmActive": "Active",
+    "alarmInactive": "Inactive",
+    "task": "Task",
+    "hideInactive": "Hide inactive",
+    "deleteQuestion": "Delete related alarms?",
+    "form": {
+      "errors": {
+        "name": {
+          "required": "Name is required."
+        },
+        "notificationTime": {
+          "required": "Notification time is required."
+        },
+        "notificationType": {
+          "required": "Notification day is required."
+        },
+        "types": {
+          "required": "Type is required."
+        },
+        "startDate": {
+          "required": "Starting date is required."
+        },
+        "endDate": {
+          "sameDates": "End date is required."
+        },
+        "interval": {
+          "required": "Interval is required."
+        },
+        "intervalType": {
+          "required": "Interval type is required."
+        }
+      }
+    }
+  },
+  "tasks": {
+    "alarm": "Alarm",
+    "hideDone": "Hide Completed",
+    "deleteQuestion": "Delete related tasks?",
+    "deleteSubtasks": "Delete subtasks?",
+    "taskActive": "Active",
+    "taskInactive": "Inactive",
+    "form": {
+      "errors": {
+        "name": {
+          "required": "Name is required."
+        },
+        "mainTask": {
+          "required": "Main task is required."
+        },
+        "startDate": {
+          "required": "Starting date is required."
+        },
+        "endDate": {
+          "sameDates": "End date must be different from start date."
+        },
+        "interval": {
+          "required": "Interval is required."
+        },
+        "intervalType": {
+          "required": "Interval type is required."
+        }
+      }
+    }
+  },
+  "dashboard": {
+    "prev": "Previous month",
+    "current": "Current month",
+    "next": "Next month"
+  },
+  "header": {
+    "logout": "Log out",
+    "todayAt": "Today at:",
+    "tomorrowAt": "Tomorrow at:"
+  },
+  "auth": {
+    "form": {
+      "errors": {
+        "email": {
+          "required": "E-mail is required.",
+          "email": "E-mail has invalid format."
+        },
+        "password": {
+          "required": "Password is required."
+        }
+      }
+    }
+  },
+  "taskStatuses": {
+    "to-do": "To do",
+    "in-progress": "In progress",
+    "done": "Done",
+    "undone": "Undone",
+    "rejected": "Rejected",
+    "blocked": "Blocked"
+  },
+  "files": {
+    "form": {
+      "errors": {
+        "name": {
+          "required": "Name is required."
+        },
+        "file": {
+          "required": "File is required.",
+          "maxSize": "File is too large."
+        }
+      }
+    }
+  },
+  "videos": {
+    "form": {
+      "errors": {
+        "href": {
+          "required": "Address is required.",
+          "url": "Address has invalid format."
+        },
+        "name": {
+          "required": "Name is required."
+        }
+      }
+    }
+  },
+  "colors": {
+    "form": {
+      "errors": {
+        "name": {
+          "required": "Name is required."
+        },
+        "color": {
+          "required": "Color is required."
+        }
+      }
+    }
+  },
+  "settings": {
+    "form": {
+      "errors": {
+        "currentPassword": {
+          "required": "Current password is required."
+        },
+        "password": {
+          "required": "New password is required."
+        },
+        "repeatPassword": {
+          "required": "Repeat password is required.",
+          "differentPasswords": "Passwords are different."
+        }
+      }
+    },
+    "buttons": {
+      "enableNotifications": "Allow notifications"
+    },
+    "codeSentMessage": "Code has been sent"
+  },
+  "resetPassword": {
+    "form": {
+      "errors": {
+        "password": {
+          "required": "Password is required."
+        },
+        "repeatPassword": {
+          "required": "Repeat password is required.",
+          "differentPasswords": "Passwords are different."
+        }
+      }
+    }
+  },
+  "catalogs": {
+    "form": {
+      "errors": {
+        "name": {
+          "required": "Name is required."
+        }
+      }
+    }
+  },
+  "shared": {
+    "from": "From:",
+    "to": "To:",
+    "day": "Day",
+    "week": "Week",
+    "month": "Month",
+    "belongsTo": "Belongs to",
+    "partOf": "Part of",
+    "alarmsTypes": {
+      "days": "Days",
+      "weeks": "Weeks",
+      "months": "Months"
+    },
+    "notificationsTypes": {
+      "previousDay": "Day before",
+      "currentDay": "Alarm day",
+      "nextDay": "Day after",
+      "day": "x days before",
+      "week": "x weeks before",
+      "month": "x months (30 days)"
+    }
+  }
+}

@@ -1,0 +1,72 @@
+<div class='d-flex w-100 justify-space-between'>
+  <button
+    (click)='emitShowAlarms()'
+    *ngIf='alarm.periodic'
+    [disabled]='((dataAlarm$ | async)?.alarms.length === 0)'
+    [ngClass]="{'active-section' : activeSection === 0}"
+    class='section-button'
+    mat-icon-button
+    onclick='this.blur();'
+    type='button'>
+    <mat-icon [matTooltip]="'tooltips.alarms' | translate">
+      double_arrow
+    </mat-icon>
+  </button>
+  <button
+    (click)='emitShowNotifications()'
+    *ngIf='!alarm.periodic'
+    [ngClass]="{'active-section' : activeSection === 0}"
+    class='section-button'
+    mat-icon-button
+    onclick='this.blur();'
+    type='button'>
+    <mat-icon [matTooltip]="'tooltips.notifications' | translate">
+      double_arrow
+    </mat-icon>
+  </button>
+  <button
+    (click)='emitShowCatalogs()'
+    [disabled]='!alarm.periodic && alarm.group !== null && ((dataAlarm$ | async)?.catalogs.length === 0)'
+    mat-icon-button
+    onclick='this.blur();'
+    type='button'>
+    <mat-icon [matTooltip]="(dataAlarm$ | async) === null ? null : 'tooltips.catalogs' | translate | pinnedTooltip : (dataAlarm$ | async)?.catalogs.length">
+      bookmark
+    </mat-icon>
+  </button>
+  <button
+    (click)='emitShowNotifications()'
+    *ngIf='alarm.periodic'
+    [ngClass]="{'active-section' : activeSection === 1}"
+    class='section-button'
+    mat-icon-button
+    onclick='this.blur();'
+    type='button'>
+    <mat-icon [matTooltip]="'tooltips.notifications' | translate">
+      double_arrow
+    </mat-icon>
+  </button>
+  <button
+    (click)='emitDelete()'
+    [matTooltip]="'tooltips.delete' | translate"
+    mat-icon-button
+    onclick='this.blur();'
+    type='button'>
+    <mat-icon>
+      delete
+    </mat-icon>
+  </button>
+  <button
+    (click)='emitShowContent()'
+    [disabled]='!alarm.periodic && alarm.group !== null && ((dataAlarm$ | async).content | emptyString)'
+    [matTooltip]="'tooltips.showContent' | translate"
+    [ngClass]="{'active-section' : activeSection === 1}"
+    class='section-button'
+    mat-icon-button
+    onclick='this.blur();'
+    type='button'>
+    <mat-icon>
+      double_arrow
+    </mat-icon>
+  </button>
+</div>

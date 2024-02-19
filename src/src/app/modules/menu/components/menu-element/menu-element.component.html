@@ -1,0 +1,5 @@
+<mat-list-item [ngClass]="{'selected' : active}" [routerLink]='[data.href]' onclick='this.blur();'>
+  <span class='name'>
+    {{'menu.' + data.name | translate}}
+  </span>
+</mat-list-item>

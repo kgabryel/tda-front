@@ -1,0 +1,42 @@
+<div *ngIf='edit'>
+  <p-editor [(ngModel)]='editValue' [style]="{'height' : '320px'}"></p-editor>
+  <div class='d-flex justify-space-between pt-1'>
+    <button (click)='save()' color='primary' mat-raised-button type='button'>
+      <mat-icon>
+        save
+      </mat-icon>
+      <span>
+        {{'form.actions.save' | translate}}
+      </span>
+    </button>
+    <button (click)='clear()' *ngIf='!(content | emptyString)' color='warn' mat-raised-button type='button'>
+      <mat-icon>
+        close
+      </mat-icon>
+      <span>
+        {{'tooltips.delete' | translate}}
+      </span>
+    </button>
+    <button (click)='stopEdit()' mat-raised-button type='button'>
+      <mat-icon>
+        close
+      </mat-icon>
+      <span>
+        {{'form.actions.cancel' | translate}}
+      </span>
+    </button>
+  </div>
+</div>
+<div *ngIf='!edit'>
+  <div (dblclick)='edit = true' [innerHTML]='content' class='border-radius-5 mb-0 pa-2 c-text basic-bg-hover'></div>
+  <div class='d-flex justify-flex-end pt-1'>
+    <button (click)='clear()' *ngIf='!(content | emptyString)' color='warn' mat-raised-button type='button'>
+      <mat-icon>
+        close
+      </mat-icon>
+      <span>
+        {{'tooltips.delete' | translate}}
+      </span>
+    </button>
+  </div>
+</div>

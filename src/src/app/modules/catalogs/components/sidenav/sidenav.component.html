@@ -1,0 +1,17 @@
+<mat-drawer-container [ngClass]="{'small' : small$ | async}" autosize hasBackdrop='true'>
+  <mat-drawer
+    (closed)='changeStatus($event)'
+    [autoFocus]='false'
+    [opened]='(showed$ | async).open'
+    mode='over'
+    position='end'>
+    <catalogs-add-form (formSubmitted)='changeStatus(false)' *ngIf='(showed$ | async).model === null'>
+    </catalogs-add-form>
+    <catalogs-edit-form
+      (formSubmitted)='changeStatus(false)'
+      *ngIf='(showed$ | async).model !== null'
+      [catalog]='(showed$ | async).model'>
+    </catalogs-edit-form>
+  </mat-drawer>
+  <ng-content></ng-content>
+</mat-drawer-container>

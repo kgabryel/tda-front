@@ -1,0 +1,393 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'colors';
+
+.c-pointer {
+  cursor: pointer;
+}
+
+.c-text {
+  cursor: text;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.w-auto {
+  width: auto;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+input:read-only {
+  caret-color: transparent !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s;
+}
+
+.d-flex {
+  display: flex !important;
+}
+
+.d-block {
+  display: block !important;
+}
+
+.d-inline-block {
+  display: inline-block;
+}
+
+.justify-space-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-flex-end {
+  justify-content: flex-end;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.flex-row-wrap {
+  flex-flow: row wrap;
+}
+
+.text-center {
+  text-align: center;
+}
+
+input {
+  line-height: 1.3 !important;
+}
+
+.two-buttons-container > button {
+  width: calc(50% - 5px);
+}
+
+.two-buttons-container > button:first-child {
+  margin-right: 10px;
+}
+
+.sidenav-header {
+  color: $color-primary;
+  font-weight: 500;
+}
+
+.normal .toast-top-full-width {
+  top: 10px !important;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.align-baseline {
+  align-items: baseline;
+}
+
+@media only screen and (min-width: 530px) {
+  .two-columns-container > * {
+    display: inline-block;
+    width: calc(50% - 5px);
+  }
+  .two-columns-container > div:first-child {
+    margin-right: 10px;
+  }
+}
+
+.border-radius-5 {
+  border-radius: 5px;
+}
+
+.single-line {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+
+@media only screen and (max-width: 500px) {
+  .two-buttons-container > button {
+    margin: 0;
+    width: 100%
+  }
+  .two-buttons-container > button:first-child {
+    margin-bottom: 10px;
+  }
+}
+
+.three-buttons-container > button {
+  width: calc(33% - 10px);
+}
+
+.three-buttons-container > button:nth-child(2) {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+@media only screen and (max-width: 500px) {
+  .three-buttons-container > button {
+    margin: 0;
+    width: 100%
+  }
+  .three-buttons-container > button:nth-child(2) {
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+}
+
+.multiple-buttons-containers {
+  overflow: hidden;
+  display: flex;
+}
+
+.multiple-buttons-containers > button:not(:last-child):first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.multiple-buttons-containers > button:not(:first-child):last-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.multiple-buttons-containers > button:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+
+.icon-button {
+  min-width: 45px !important;
+  padding: 0 !important;
+}
+
+#toast-container > div {
+  width: 100%;
+}
+
+.dark-mode .ngx-mat-colorpicker-content {
+  background-color: #424242 !important;
+  color: white;
+}
+
+.dark-mode .ngx-mat-colorpicker-content .symbol {
+  color: white !important;
+}
+
+.h-45px {
+  height: 45px;
+}
+
+.h-50px {
+  height: 50px;
+}
+
+.basic-bg-hover:hover {
+  background-color: $color-basic;
+}
+
+.dark-mode .basic-bg-hover:hover {
+  background-color: #303030;
+}
+
+.d-flex-hover {
+  display: none;
+}
+
+.d-block-hover {
+  display: none;
+}
+
+.hover-activator:hover .d-flex-hover {
+  display: flex;
+}
+
+.hover-activator:hover .d-block-hover {
+  display: block;
+}
+
+.hover-activator:hover .text-underline-hover {
+  text-decoration: underline;
+}
+
+.big-container {
+  max-width: 1060px;
+  margin: 0 auto;
+}
+
+.small-container {
+  max-height: 410px;
+  overflow-y: auto;
+}
+
+.small-button {
+  min-width: 45px !important;
+  padding: 0;
+}
+
+.add-button {
+  position: fixed !important;
+  bottom: 10px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.bg-green {
+  background-color: $color-green !important;
+}
+
+.bg-yellow {
+  background-color: $color-yellow !important;
+}
+
+.dark-mode .bg-yellow {
+  color: #424242 !important;
+}
+
+.bg-white {
+  background-color: white !important;
+}
+
+.dark-mode .bg-white {
+  background-color: #424242 !important;
+}
+
+.bg-checked {
+  background-color: $color-checked;
+}
+
+.text-warn {
+  color: $color-warn;
+}
+
+.text-primary {
+  color: $color-primary;
+}
+
+.text-link {
+  color: #1a0dab;
+}
+
+.text-link:hover {
+  text-decoration: underline;
+}
+
+.dark-mode .text-link {
+  color: #e5f254;
+}
+
+.text-bold {
+  font-weight: 500;
+}
+
+.text-white {
+  color: white !important;
+}
+
+.dark-mode .text-white {
+  color: #424242 !important;
+}
+
+.sheet-icon {
+  font-size: 60px !important;
+  width: 60px !important;
+  height: 60px !important;
+}
+
+.grid-center {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+}
+
+.text-decoration-none {
+  text-decoration: none;
+}
+
+.flex-start {
+  align-content: flex-start;
+}
+
+@for $i from 0 through 4 {
+  .pa-#{$i} {
+    padding: #{5*$i}px !important;
+  }
+
+  .pt-#{$i} {
+    padding-top: #{5*$i}px !important;
+  }
+
+  .pr-#{$i} {
+    padding-right: #{5*$i}px !important;
+  }
+
+  .pb-#{$i} {
+    padding-bottom: #{5*$i}px !important;
+  }
+
+  .pl-#{$i} {
+    padding-left: #{5*$i}px !important;
+  }
+
+  .px-#{$i} {
+    padding-left: #{5*$i}px !important;
+    padding-right: #{5*$i}px !important;
+  }
+
+  .py-#{$i} {
+    padding-top: #{5*$i}px !important;
+    padding-bottom: #{5*$i}px !important;
+  }
+
+  .ma-#{$i} {
+    margin: #{5*$i}px !important;
+  }
+
+  .mt-#{$i} {
+    margin-top: #{5*$i}px !important;
+  }
+
+  .mr-#{$i} {
+    margin-right: #{5*$i}px !important;
+  }
+
+  .mb-#{$i} {
+    margin-bottom: #{5*$i}px !important;
+  }
+
+  .ml-#{$i} {
+    margin-left: #{5*$i}px !important;
+  }
+
+  .mx-#{$i} {
+    margin-left: #{5*$i}px !important;
+    margin-right: #{5*$i}px !important;
+  }
+
+  .my-#{$i} {
+    margin-top: #{5*$i}px !important;
+    margin-bottom: #{5*$i}px !important;
+  }
+}

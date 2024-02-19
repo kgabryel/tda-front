@@ -1,0 +1,36 @@
+<mat-card [style.background-color]='note.backgroundColor' class='ma-1 pa-0'>
+  <mat-card-header
+    [style.background-color]='note.backgroundColor'
+    [style.color]='note.textColor'
+    class='d-flex align-center justify-space-between py-1'>
+    <div class='w-100'>
+      <notes-actions
+        (delete)='delete()'
+        (edit)='edit()'
+        (showCatalogs)='showCatalogs()'
+        (showTasks)='showTasks()'
+        [note]='note'
+        [previewAvailable]='previewAvailable'
+        class='small-buttons w-100'>
+      </notes-actions>
+      <p class='single-line ma-0'>
+        {{note.name}}
+      </p>
+      <small>
+        {{note.date}}
+      </small>
+    </div>
+    <notes-actions
+      (delete)='delete()'
+      (edit)='edit()'
+      (showCatalogs)='showCatalogs()'
+      (showTasks)='showTasks()'
+      [note]='note'
+      [previewAvailable]='previewAvailable'
+      class='buttons'>
+    </notes-actions>
+  </mat-card-header>
+  <mat-card-content [style.color]='note.textColor'>
+    <quill-view-html [content]='note.content' theme='snow'></quill-view-html>
+  </mat-card-content>
+</mat-card>

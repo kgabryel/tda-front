@@ -1,0 +1,11 @@
+<bookmarks-sidenav>
+  <shared-loader *ngIf='search$ | async'></shared-loader>
+  <div *ngIf='(search$ | async) === false' class='d-flex pa-4 flex-row-wrap'>
+    <bookmarks-new-bookmark [style.height]='height' [style.width]='width'></bookmarks-new-bookmark>
+    <bookmarks-bookmark-view
+      *ngFor='let bookmark of (bookmarks$ | async)' [id]='bookmark.id'
+      [style.height]='height'
+      [style.width]='width'>
+    </bookmarks-bookmark-view>
+  </div>
+</bookmarks-sidenav>

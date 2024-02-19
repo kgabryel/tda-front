@@ -1,0 +1,11 @@
+<div class='w-100 h-100'>
+  <mat-card>
+    <mat-card-title>
+      {{'headers.fileIsUploading' | translate}}
+    </mat-card-title>
+    <mat-card-content>
+      <mat-progress-bar [color]='color' [mode]='mode$ | async' [value]='barValue$ | async'></mat-progress-bar>
+      {{uploaded$ | async | fileSize}} / {{fileSize$ | async | fileSize}} ({{progress$ | async}}%)
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,25 @@
+<div (mouseout)='hideOptions()' (mouseover)='showOptions()' class='w-100 h-100 d-inline-block hover-activator'>
+  <bookmarks-bookmark [bookmark]='bookmark'></bookmarks-bookmark>
+  <div class='d-flex-hover justify-center buttons'>
+    <button (click)='showCatalogs()' [disabled]='bookmark.catalogs.length === 0' mat-icon-button type='button'>
+      <mat-icon [matTooltip]="'tooltips.catalogs' | translate | pinnedTooltip : bookmark.catalogs.length">
+        folder
+      </mat-icon>
+    </button>
+    <button (click)='showTasks()' [disabled]='bookmark.tasks.length === 0' mat-icon-button type='button'>
+      <mat-icon [matTooltip]="'tooltips.tasks' | translate | pinnedTooltip : bookmark.tasks.length">
+        rule
+      </mat-icon>
+    </button>
+    <button (click)='edit()' [matTooltip]="'tooltips.edit' | translate" mat-icon-button type='button'>
+      <mat-icon>
+        create
+      </mat-icon>
+    </button>
+    <button (click)='delete()' [matTooltip]="'tooltips.delete' | translate" mat-icon-button type='button'>
+      <mat-icon>
+        delete
+      </mat-icon>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<alarms-sidenav>
+  <alarms-alarm-single
+    *ngIf='(alarm$ | async) !== undefined && (alarm$ | async).periodic === false'
+    [alarm]='alarm$ | async'
+    [previewAvailable]='false'>
+  </alarms-alarm-single>
+  <alarms-alarm-periodic
+    *ngIf='(alarm$ | async) !== undefined && (alarm$ | async).periodic === true'
+    [alarm]='alarm$ | async'
+    [previewAvailable]='false'>
+  </alarms-alarm-periodic>
+</alarms-sidenav>

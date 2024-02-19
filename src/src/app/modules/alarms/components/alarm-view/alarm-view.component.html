@@ -1,0 +1,5 @@
+<div *ngIf='(alarm$ | async) !== undefined'>
+  <alarms-alarm-single *ngIf='(alarm$ | async)?.periodic === false' [alarm]='alarm$ | async'></alarms-alarm-single>
+  <alarms-alarm-periodic *ngIf='(alarm$ | async)?.periodic === true' [alarm]='alarm$ | async'></alarms-alarm-periodic>
+</div>
+

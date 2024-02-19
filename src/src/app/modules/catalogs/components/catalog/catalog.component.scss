@@ -1,0 +1,15 @@
+:host ::ng-deep .mat-tab-body {
+  padding-top: 5px;
+}
+
+.buttons {
+  display: none;
+}
+
+.mat-card:hover .buttons {
+  display: flex;
+}
+
+:host ::ng-deep mat-card .mat-card-header-text {
+  display: none;
+}

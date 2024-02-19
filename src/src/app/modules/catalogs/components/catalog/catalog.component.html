@@ -1,0 +1,92 @@
+<div class='big-container mb-3 mt-3'>
+  <mat-card class='ma-1'>
+    <mat-card-header class='w-100 d-flex align-center justify-space-between pa-1 h-50px'>
+      <p class='mb-0 w-100 pl-1 single-line'>
+        {{catalog.name}}
+      </p>
+      <span class='buttons'>
+        <button *ngIf='previewAvailable' [routerLink]='catalog.id | catalogUrl' mat-icon-button type='button'>
+          <mat-icon [matTooltip]="'tooltips.goTo' | translate">
+            visibility
+          </mat-icon>
+        </button>
+        <button (click)='edit()' [matTooltip]="'tooltips.edit' | translate" mat-icon-button type='button'>
+          <mat-icon>
+            create
+          </mat-icon>
+        </button>
+        <button (click)='delete()' [matTooltip]="'tooltips.delete' | translate" mat-icon-button type='button'>
+          <mat-icon>
+            delete
+          </mat-icon>
+        </button>
+      </span>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-tab-group
+        [ngClass]="{'hidden' : activeIndex === -1}"
+        [selectedIndex]='activeIndex'
+        dynamicHeight
+        mat-align-tabs='center'>
+        <mat-tab
+          [disabled]='catalog.tasks.length === 0'
+          [label]="'headers.tasks' | translate | pinnedTooltip : catalog.tasks.length">
+          <ng-container *ngFor='let task of tasks$ | async'>
+            <simple-view-task-single
+              (undo)='removeTask($event)'
+              *ngIf='task.periodic === false'
+              [delete]='true'
+              [task]='task'>
+            </simple-view-task-single>
+            <simple-view-task-periodic
+              (undo)='removeTask($event)'
+              *ngIf='task.periodic === true'
+              [delete]='true'
+              [task]='task'>
+            </simple-view-task-periodic>
+          </ng-container>
+        </mat-tab>
+        <mat-tab
+          [disabled]='catalog.alarms.length === 0'
+          [label]="'headers.alarms' | translate | pinnedTooltip : catalog.alarms.length">
+          <ng-container *ngFor='let alarm of alarms$ | async'>
+            <simple-view-alarm-single (undo)='removeAlarm($event)' *ngIf='alarm.periodic === false' [alarm]='alarm'>
+            </simple-view-alarm-single>
+            <simple-view-alarm-periodic (undo)='removeAlarm($event)' *ngIf='alarm.periodic' [alarm]='alarm'>
+            </simple-view-alarm-periodic>
+          </ng-container>
+        </mat-tab>
+        <mat-tab
+          [disabled]='catalog.notes.length === 0'
+          [label]="'headers.notes' | translate | pinnedTooltip : catalog.notes.length">
+          <simple-view-note (undo)='removeNote($event)' *ngFor='let note of notes$ | async' [note]='note'>
+          </simple-view-note>
+        </mat-tab>
+        <mat-tab
+          [disabled]='catalog.bookmarks.length === 0'
+          [label]="'headers.bookmarks' | translate | pinnedTooltip : catalog.bookmarks.length">
+          <simple-view-bookmark
+            (undo)='removeBookmark($event)'
+            *ngFor='let bookmark of bookmarks$ | async'
+            [bookmark]='bookmark'>
+          </simple-view-bookmark>
+        </mat-tab>
+        <mat-tab
+          [disabled]='catalog.files.length === 0'
+          [label]="'headers.files' | translate | pinnedTooltip : catalog.files.length">
+          <simple-view-file (undo)='removeFile($event)' *ngFor='let file of files$ | async' [file]='file'>
+          </simple-view-file>
+        </mat-tab>
+        <mat-tab
+          [disabled]='catalog.videos.length === 0'
+          [label]="'headers.videos' | translate | pinnedTooltip : catalog.videos.length">
+          <simple-view-video (undo)='removeVideo($event)' *ngFor='let video of videos$ | async' [video]='video'>
+          </simple-view-video>
+        </mat-tab>
+      </mat-tab-group>
+      <p [ngClass]="{'hidden' : activeIndex !== -1}" class='text-center'>
+        {{'messages.emptyCatalog' | translate}}
+      </p>
+    </mat-card-content>
+  </mat-card>
+</div>

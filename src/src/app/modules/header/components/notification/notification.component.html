@@ -1,0 +1,24 @@
+<div
+  *ngIf='notification !== null'
+  [matTooltip]='"tooltips.nextAlarm" | translate'
+  [routerLink]='[notification.alarmId | alarmUrl]'
+  class='d-flex justify-center c-pointer ml-3'>
+  <div class='d-flex align-center'>
+    <mat-icon>
+      notifications
+    </mat-icon>
+  </div>
+  <div class='d-flex align-center justify-center'>
+    <div class='text-center'>
+      <span class='header d-block'>
+        {{notification.name}}
+      </span>
+      <span class='date d-block'>
+        <ng-container *ngIf="time.prefix !== ''">
+          {{time.prefix | translate}}
+        </ng-container>
+        {{time.time}}
+      </span>
+    </div>
+  </div>
+</div>

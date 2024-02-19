@@ -1,0 +1,56 @@
+<div [formGroup]='form' class='pa-3'>
+  <form-text-input
+    [errors]='errors.name'
+    [field]='form.get(formNames.name)'
+    [maxLength]='maxNameLength'
+    label='form.label.name'
+    part='name'
+    prefix='notes'>
+  </form-text-input>
+  <div class='d-flex justify-center mt-2 mb-2'>
+    <mat-slide-toggle [formControlName]='formNames.assignedToDashboard' color='primary'>
+      {{'form.label.assignedToDashboard' | translate}}
+    </mat-slide-toggle>
+  </div>
+  <p-editor [formControlName]='formNames.content' [style]="{'height' : '320px'}"></p-editor>
+  <span *ngIf='form.get(formNames.content).invalid && form.get(formNames.content).touched'>
+    <form-errors-container
+      [errors]='errors.content'
+      [input]='form.get(formNames.content)'
+      part='content'
+      prefix='notes'>
+    </form-errors-container>
+  </span>
+  <div class='mt-2'>
+    <form-color-input
+      [errors]='errors.backgroundColor'
+      [field]='form.get(formNames.backgroundColor)'
+      [simple]='false'
+      label='form.label.backgroundColor'
+      part='backgroundColor'
+      prefix='notes'>
+    </form-color-input>
+  </div>
+  <form-color-input
+    [errors]='errors.textColor'
+    [field]='form.get(formNames.textColor)'
+    [simple]='false'
+    label='form.label.textColor'
+    part='textColor'
+    prefix='notes'>
+  </form-color-input>
+  <form-multi-select
+    *ngIf='(catalogs$ | async)?.length > 0'
+    [formGroup]='form.get(formNames.catalogs)'
+    [reset]='reset$'
+    [values]='catalogs$ | async'
+    label='form.label.catalogs'>
+  </form-multi-select>
+  <form-multi-select
+    *ngIf='(tasks$ | async)?.length > 0'
+    [formGroup]='form.get(formNames.tasks)'
+    [reset]='reset$'
+    [values]='tasks$ | async'
+    label='form.label.tasks'>
+  </form-multi-select>
+</div>

@@ -1,0 +1,6 @@
+<tasks-sidenav *ngIf='(task$ | async) !== undefined'>
+  <tasks-task-single *ngIf='(task$ | async).periodic === false' [previewAvailable]='false' [task]='task$ | async'>
+  </tasks-task-single>
+  <tasks-task-periodic *ngIf='(task$ | async).periodic === true' [previewAvailable]='false' [task]='task$ | async'>
+  </tasks-task-periodic>
+</tasks-sidenav>
